@@ -1,6 +1,9 @@
 node_modules
 .next
 
+main.css.map
+static/styles/.sass-cache
+
 dist
 # next.config.*
 # now.json
