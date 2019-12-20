@@ -1,0 +1,181 @@
+// Utility Bar
+// ----------------------------------------------------------------------
+.component-utility-bar {
+  .btn-menu {
+    position: absolute;
+    top: rem($pm-size-05 + 2);
+    left: rem($pm-size-1);
+    cursor: pointer;
+    z-index: 999;
+
+    @include responds-to(small-screen) {
+      display: none;
+      float: left;
+      position: relative;
+      margin: rem(9px) rem(8px) 0 rem(15px);
+      top: auto;
+      left: auto;
+    }
+
+    @include responds-to(iphonex) {
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: rem($pm-size-05 + 2);
+      left: rem($pm-size-1);
+    }
+  }
+
+  .component-utility-items {
+    background: #000;
+    clear: both;
+
+    @include responds-to(small-screen) {
+      background: transparent;
+      float: right;
+      clear: none;
+    }
+
+    @include responds-to(iphonex) {
+      background: #000;
+      float: none;
+      clear: both;
+    }
+
+    .btn-svg-icon {
+      background: #333;
+      display: inline-block;
+      margin: rem($pm-size-1);
+      border: 1px solid #fff;
+      opacity: 1;
+
+      @include responds-to(small-screen) {
+        margin: rem($pm-size-05 + 3) rem($pm-size-05) 0 rem($pm-size-05);
+      }
+
+      @include responds-to(iphonex) {
+        margin: rem($pm-size-1);
+      }
+
+      svg {
+        max-width: rem(16px);
+        height: auto;
+        fill: #fff;
+      }
+
+      &:hover,
+      &.active {
+        background: #fff;
+        border: 1px solid transparent;
+
+        svg {
+          fill: #000;
+        }
+      }
+
+      > .chat-notification {
+        background: #ee0000;
+        display: block;
+        height: rem(9px);
+        width: (9px);
+        border-radius: 50%;
+        position: absolute;
+        top: rem(1px);
+        right: rem(3px);
+        box-shadow: 0 0 1px 1px #eee;
+      }
+
+      @media (hover: none), (hover: on-demand) {
+        background: #333;
+        border: 1px solid transparent;
+        svg {
+          fill: #fff;
+        }
+
+        &:hover,
+        &:focus {
+          background: #333;
+          border: 1px solid transparent;
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+
+      &.icon-filters {
+        @include responds-to(small-screen) {
+          display: none;
+        }
+
+        @include responds-to(iphonex) {
+          display: inline-block;
+        }
+      }
+
+      &.btn-quit {
+        margin: 0;
+        position: absolute;
+        top: rem($pm-size-05 + 2);
+        right: rem($pm-size-1);
+
+        @include responds-to(small-screen) {
+          position: relative;
+          margin: rem($pm-size-05 + 3) rem($pm-size-1) 0 rem($pm-size-05);
+          top: auto;
+          right: auto;
+        }
+
+        @include responds-to(iphonex) {
+          margin: 0;
+          position: absolute;
+          top: rem($pm-size-05 + 2);
+          right: rem($pm-size-1);
+        }
+      }
+    }
+
+    // For electron
+    &.is-electron {
+      .control-btns-container {
+        display: inline-block;
+        position: relative;
+        padding: 0 rem($pm-size-05) 0 rem($pm-size-1);
+        z-index: 999;
+
+        .btn-elec-icon {
+          background-image: none;
+          background-color: transparent;
+          display: inline-block;
+          margin: 0 rem(2px);
+          border: 1px solid #fff;
+          outline: 0 none;
+
+          @include responds-to(small-screen) {
+            margin: 0 rem($pm-size-05);
+          }
+
+          svg {
+            max-width: rem(16px);
+            height: auto;
+            fill: #fff;
+          }
+
+          &:hover,
+          &.active {
+            background: #fff;
+            border: 1px solid transparent;
+            svg {
+              fill: #000;
+            }
+          }
+        }
+      }
+
+      &.logged-out {
+        .control-btns-container {
+          top: rem($pm-size-1 - 2);
+        }
+      }
+    }
+  }
+}

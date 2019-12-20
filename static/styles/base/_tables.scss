@@ -1,0 +1,64 @@
+// tables.scss
+
+// ----------------------------------------------------------------------
+table {
+  width: 100%;
+  font-size: rem(14px);
+  text-align: left;
+  margin: rem($pm-size-1) 0;
+  border-bottom: 2px solid $base-lighter-gray;
+  border-collapse: collapse;
+
+  @media screen and (max-width: $tablet) {
+    font-size: rem(12px);
+
+    thead {
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      margin: -1px;
+      padding: 0;
+      position: absolute;
+      border: 0;
+    }
+  }
+
+  tr th {
+    background: $base-white;
+    border-bottom: 2px solid $base-lighter-gray;
+  }
+
+  th,
+  td {
+    vertical-align: top;
+    padding: rem($pm-size-1);
+  }
+
+  tr {
+    @media screen and (max-width: $tablet) {
+      display: block;
+      border-top: 1px solid $base-lighter-gray;
+      border-bottom: 0;
+    }
+
+    &:nth-child(odd) {
+      background-color: #ecf2f9;
+    }
+  }
+
+  td {
+    @media screen and (max-width: $tablet) {
+      display: block;
+      text-align: right;
+      border-bottom: 0;
+
+      &::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

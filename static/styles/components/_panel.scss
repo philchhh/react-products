@@ -1,0 +1,261 @@
+// Panels
+// ----------------------------------------------------------------------
+.secondary-panel {
+  background: transparent;
+  height: 100%;
+  width: $grid-12;
+  position: relative;
+  @include transition(all, 0.3s);
+
+  .btn-close {
+    position: absolute;
+    top: rem($pm-size-1);
+    right: rem($pm-size-1);
+    z-index: 999;
+
+    @include responds-to(small-screen) {
+      display: none;
+    }
+  }
+
+  .btn-panel {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: rem(-20px);
+    z-index: 999;
+    @include transform(translateY(-50%));
+
+    @include responds-to(small-screen) {
+      display: block;
+    }
+
+    @include responds-to(iphonex) {
+      display: none;
+    }
+  }
+
+  .filter-checkbox {
+    @media screen and (max-height: $desktop) {
+      display: none;
+    }
+  }
+
+  &.grid {
+    position: absolute;
+    z-index: 1001;
+    top: 0;
+    left: -110%;
+
+    @include responds-to(small-screen) {
+      width: $grid-4;
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+
+    @include responds-to(medium-screen) {
+      width: $grid-3;
+    }
+
+    @include responds-to(full-screen) {
+      width: $grid-2;
+    }
+
+    @include responds-to(iphonex) {
+      width: $grid-12;
+      position: absolute;
+      top: 0;
+      left: -110%;
+    }
+  }
+
+  &.collapsed {
+    left: 0;
+
+    @include responds-to(small-screen) {
+      margin-left: -$grid-4;
+      top: auto;
+      left: auto;
+    }
+
+    @include responds-to(medium-screen) {
+      margin-left: -$grid-3;
+    }
+
+    @include responds-to(full-screen) {
+      margin-left: -$grid-2;
+    }
+
+    @include responds-to(iphonex) {
+      margin-left: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.component-filters {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: rem($pm-size-1 + 5);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .form-group {
+    margin-bottom: rem($pm-size-1);
+  }
+
+  .control-label {
+    font-size: rem(18px);
+    margin: 0;
+  }
+}
+
+.component-gamelist {
+  height: 100%;
+  position: relative;
+  padding: rem(0) rem(8px);
+  overflow-y: auto;
+  @include transition(all, 0.3s);
+
+  @include responds-to(max-width-small-screen) {
+    background-image: none !important;
+  }
+
+  &.grid {
+    @include responds-to(small-screen) {
+      width: $grid-8;
+      padding: rem(15px) rem($pm-size-3);
+    }
+
+    @include responds-to(medium-screen) {
+      width: $grid-9;
+    }
+
+    @include responds-to(full-screen) {
+      width: $grid-8;
+    }
+
+    @include responds-to(iphonex) {
+      width: $grid-12;
+    }
+
+    &.expand-full {
+      @include responds-to(small-screen) {
+        width: $grid-12;
+      }
+    }
+
+    &.expand-left {
+      @include responds-to(small-screen) {
+        width: $grid-12;
+      }
+
+      @include responds-to(full-screen) {
+        width: $grid-8 + $grid-2;
+      }
+    }
+
+    &.expand-right {
+      @include responds-to(medium-screen) {
+        width: $grid-9;
+      }
+
+      @include responds-to(full-screen) {
+        width: $grid-8 + $grid-2;
+      }
+
+      @include responds-to(iphonex) {
+        width: $grid-12;
+      }
+    }
+  }
+}
+
+.sidebar {
+  background: $base-light-gray;
+  height: 100%;
+  padding: rem($pm-size-1 + 5);
+  @include transition(all, 0.3s);
+
+  &.grid {
+    width: 100%;
+    position: fixed;
+    bottom: -100%;
+    right: 0;
+    z-index: 1050;
+
+    @include responds-to(small-screen) {
+      height: 100%;
+      width: $grid-4 - 5;
+      position: absolute;
+      top: 0;
+      right: -50%;
+      bottom: auto;
+      left: auto;
+
+      &.expand {
+        right: 0;
+      }
+    }
+
+    @include responds-to(full-screen) {
+      width: $grid-2;
+    }
+
+    &.expand {
+      bottom: 0;
+
+      @include responds-to(small-screen) {
+        right: 0;
+        top: auto;
+        left: auto;
+        bottom: auto;
+      }
+
+      @include responds-to(iphonex) {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        right: 0;
+      }
+    }
+  }
+
+  // This is for rare ads below the chat form.
+  iframe {
+    margin: rem($pm-size-1 + 5) 0 0 0;
+  }
+}
+
+.uge-fullscreen {
+  .sidebar {
+    &.grid {
+      position: absolute;
+
+      @include responds-to(small-screen) {
+        max-width: rem(240px);
+      }
+    }
+  }
+}
+
+@include full-screen("#uge-fullscreen") {
+  .uge-fullscreen {
+    .sidebar {
+      &.grid {
+        position: fixed;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+// Global Header
+// ----------------------------------------------------------------------
+.main-header {
+  background: $base-blacker;
+  min-height: rem($utility-bar-height);
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 999;
+
+  @include responds-to(small-screen) {
+    min-height: rem($utility-bar-height);
+  }
+
+  @include responds-to(iphonex) {
+    height: auto;
+    min-height: rem($utility-bar-height);
+  }
+
+  @include responds-to(max-width-small-screen) {
+    &.mobile-hidden {
+      display: none;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+
+  > h1 {
+    font-size: rem($base-font-size);
+    font-weight: bold;
+    color: $base-white;
+    line-height: $utility-bar-height;
+    position: relative;
+    margin: 0;
+    padding: 0 rem($pm-size-1);
+
+    @include responds-to(small-screen) {
+      float: left;
+    }
+
+    @include responds-to(iphonex) {
+      float: none;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

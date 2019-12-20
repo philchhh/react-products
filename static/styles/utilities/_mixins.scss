@@ -1,0 +1,334 @@
+// mixins.scss
+// ----------------------------------------------------------------------
+// Media Queries
+@mixin responds-to($media) {
+  @if $media == xs-screen {
+    @media only screen and (min-width: $base-width-xs) {
+      @content;
+    }
+  } @else if $media == handheld {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $media == small-screen {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  } @else if $media == medium-screen {
+    @media only screen and (min-width: $mediumscreen) {
+      @content;
+    }
+  } @else if $media == wide-screen {
+    @media only screen and (min-width: $widescreen) {
+      @content;
+    }
+  } @else if $media == full-screen {
+    @media only screen and (min-width: $fullscreen) {
+      @content;
+    }
+  } @else if $media == max-screen-height {
+    @media only screen and (max-height: $min-screen-height-lg) {
+      @content;
+    }
+  } @else if $media == max-screen-height-md {
+    @media only screen and (max-height: $min-screen-height-md) {
+      @content;
+    }
+  } @else if $media == max-width-handheld {
+    @media only screen and (max-width: $base-width-tablet-px - 1 + px) {
+      @content;
+    }
+  } @else if $media == max-width-small-screen {
+    @media only screen and (max-width: $base-width-desktop-px - 1 + px) {
+      @content;
+    }
+    // iPhone X
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+
+    // iPhone XR
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+      @content;
+    }
+
+    // iPhone XS
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+
+    // iPhone XS Max
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+  } @else if $media == iphonex {
+    // iPhone X
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+
+    // iPhone XR
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+      @content;
+    }
+
+    // iPhone XS
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+
+    // iPhone XS Max
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+  } @else if $media == ipad {
+    // iPad (not iPad pro)
+    @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+      @content;
+    }
+    @media screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == "vertical" {
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == "horizontal" {
+    background: linear-gradient(to left, $start-color, $end-color);
+  } @else {
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+// Fullscreen (add styles while in full screen mode)
+@mixin full-screen($id) {
+  #{$id}:-webkit-full-screen {
+    @content;
+  }
+  #{$id}:-moz-full-screen {
+    @content;
+  }
+  #{$id}:-ms-fullscreen {
+    @content;
+  }
+  #{$id}:fullscreen {
+    @content;
+  }
+}
+
+// Flex
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin switch-to-columns() {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin justify-center() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@mixin justify-space() {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@mixin justify-around() {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+@mixin align-items-center() {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin align-items-baseline() {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+// Columns (Used for lists mainly)
+@mixin columns($count: 3, $gap: 10) {
+  -webkit-column-count: $count;
+  -moz-column-count: $count;
+  column-count: $count;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+}
+
+// Double Borders
+@mixin double-borders($colorOne: #3c3c3c, $colorTwo: #999999, $radius: 0) {
+  border: 1px solid $colorOne;
+  box-shadow: 0 0 0 1px $colorTwo;
+}
+
+// Flip
+@mixin flip($scaleX: -1) {
+  -moz-transform: scaleX($scaleX);
+  -webkit-transform: scaleX($scaleX);
+  transform: scaleX($scaleX);
+  -ms-filter: "FlipH";
+}
+
+// Font Face
+@mixin font-face(
+  $fontFamily: myFont,
+  $eotFileSrc: "myFont.eot",
+  $woffFileSrc: "myFont.woff",
+  $ttfFileSrc: "myFont.ttf"
+) {
+  font-family: $fontFamily;
+  src: url($eotFileSrc) format("eot"), url($woffFileSrc) format("woff"),
+    url($ttfFileSrc) format("truetype");
+}
+
+// Resize
+@mixin resize($direction: both) {
+  -webkit-resize: $direction;
+  -moz-resize: $direction;
+  resize: $direction;
+}
+
+// Rotate
+@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
+  -moz-transform: rotate($deg + deg);
+  -webkit-transform: rotate($deg + deg);
+  -ms-transform: rotate($deg + deg);
+  transform: rotate($deg + deg);
+}
+
+// Transform
+@mixin transform($params) {
+  -webkit-transform: $params;
+  -moz-transform: $params;
+  transform: $params;
+}
+
+// Scale
+@mixin scale($amount) {
+  -webkit-transform: scale($amount);
+  -moz-transform: scale($amount);
+  transform: scale($amount);
+}
+
+// Transition
+@mixin transition($what: all, $length: 1s, $easing: null) {
+  -moz-transition: $what $length $easing;
+  -webkit-transition: $what $length $easing;
+  -ms-transition: $what $length $easing;
+  transition: $what $length $easing;
+}
+
+// Blur Filter
+@mixin blurred($amount) {
+  -webkit-filter: blur($amount);
+  -moz-filter: blur($amount);
+  -ms-filter: blur($amount);
+  filter: blur($amount);
+}
+
+// REMs
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+$rem-baseline: 16px !default;
+$rem-fallback: false !default;
+$rem-px-only: false !default;
+
+@function rem-separator($list, $separator: false) {
+  @if $separator == "comma" or $separator == "space" {
+    @return append($list, null, $separator);
+  }
+
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@mixin rem-baseline($zoom: 100%) {
+  font-size: $zoom / 16px * $rem-baseline;
+}
+
+@function rem-convert($to, $values...) {
+  $result: ();
+  $separator: rem-separator($values);
+
+  @each $value in $values {
+    @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+      $result: append($result, $value / 1rem * $rem-baseline + 0px, $separator);
+    } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+      $result: append($result, $value / $rem-baseline + 0rem, $separator);
+    } @else if type-of($value) == "list" {
+      $value-separator: rem-separator($value);
+      $value: rem-convert($to, $value...);
+      $value: rem-separator($value, $value-separator);
+      $result: append($result, $value, $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+@function rem($values...) {
+  @if $rem-px-only {
+    @return rem-convert(px, $values...);
+  } @else {
+    @return rem-convert(rem, $values...);
+  }
+}
+
+@mixin rem($properties, $values...) {
+  @if type-of($properties) == "map" {
+    @each $property in map-keys($properties) {
+      @include rem($property, map-get($properties, $property));
+    }
+  } @else {
+    @each $property in $properties {
+      @if $rem-fallback or $rem-px-only {
+        #{$property}: rem-convert(px, $values...);
+      }
+      @if not $rem-px-only {
+        #{$property}: rem-convert(rem, $values...);
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+// Game Details
+// ----------------------------------------------------------------------
+.component-game-details {
+  background: $base-light-gray;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  left: 110%;
+  z-index: 999;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @include responds-to(small-screen) {
+    top: 0;
+    left: 0;
+  }
+
+  @include responds-to(iphonex) {
+    left: 110%;
+  }
+
+  .form-group {
+    .control-label {
+      display: none;
+    }
+  }
+
+  .game-details {
+    padding: rem($pm-size-1);
+
+    @include responds-to(small-screen) {
+      height: 100%;
+      margin-bottom: rem(-$game-details-bottom-spacing);
+      padding-bottom: rem($game-details-bottom-spacing);
+    }
+
+    .game-details-in {
+      position: relative;
+    }
+
+    .game-features {
+      margin: rem($pm-size-1) 0 0 0;
+    }
+
+    .game-details-tile {
+      max-width: 140px;
+      position: relative;
+
+      @include responds-to(handheld) {
+        max-width: 300px;
+        height: auto;
+        width: 100%;
+      }
+
+      @include responds-to(small-screen) {
+        max-width: none;
+      }
+
+      @media screen and (max-height: $min-screen-height) {
+        max-width: rem(140px);
+      }
+    }
+
+    .tile-img {
+      min-height: rem(140px);
+      min-width: rem(140px);
+      position: relative;
+
+      .tile-loader {
+        height: calc(100% - 35px);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1999;
+
+        > .loader {
+          margin: rem(-25px) 0 0 rem(-25px);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%, -50%));
+        }
+      }
+
+      .btn-launch {
+        margin-top: rem($pm-size-1);
+      }
+    }
+
+    .game-details-title {
+      font-size: rem($base-font-size);
+      position: relative;
+      margin: rem($pm-size-05) 0 rem($pm-size-1) 0;
+
+      @include responds-to(handheld) {
+        font-size: rem(20px);
+      }
+
+      @media screen and (min-height: $min-screen-height-md) {
+        margin: rem($pm-size-1) 0 rem($pm-size-2) 0;
+      }
+    }
+
+    .game-details-stats {
+      margin-bottom: rem(20px);
+    }
+  }
+
+  .btn-launch,
+  .btn-cancel-launch {
+    font-size: rem(20px);
+    width: 100%;
+    margin: rem($pm-size-05) 0;
+    padding: rem($pm-size-05);
+  }
+
+  .btn-launch,
+  .form-group {
+    display: none;
+  }
+
+  .form-group {
+    margin-top: rem(-8px);
+
+    .btn-group {
+      display: block;
+    }
+  }
+
+  @include responds-to(max-width-small-screen) {
+    .tile-img {
+      .btn-launch {
+        display: block;
+        font-size: rem(16px);
+      }
+
+      .form-group {
+        display: block;
+      }
+    }
+  }
+
+  .game-control-btns {
+    padding: rem($pm-size-1);
+
+    .btn-launch,
+    .form-group {
+      @include responds-to(small-screen) {
+        display: block;
+      }
+
+      @include responds-to(iphonex) {
+        display: none;
+      }
+    }
+
+    .btn-launch {
+      margin-bottom: rem(14px);
+    }
+  }
+
+  @include responds-to(max-width-small-screen) {
+    .btn-cancel-launch {
+      display: block;
+      height: rem(34px);
+      width: rem(34px);
+      text-indent: rem(-9999px);
+      position: absolute;
+      top: 0;
+      right: rem($pm-size-1);
+
+      &::before,
+      &::after {
+        background-color: $base-white;
+        content: "";
+        height: rem(32px);
+        width: rem(3px);
+        position: absolute;
+        top: 0;
+        left: 50%;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .game-details-feature {
+    display: inline-block;
+    padding: 0 rem($pm-size-05) 0 0;
+
+    .feature-icon {
+      position: relative;
+
+      .feature-tooltip {
+        background-color: #555;
+        font-size: rem(14px);
+        color: #fff;
+        min-width: rem(120px);
+        text-align: center;
+        padding: rem($pm-size-05) rem($pm-size-05);
+        border-radius: rem(6px);
+        opacity: 0;
+        position: absolute;
+        top: rem(-40px);
+        left: 0;
+        z-index: 5000;
+        @include transition(opacity, 0.2s, ease-in-out);
+      }
+
+      &:hover,
+      &:focus {
+        .feature-tooltip {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Mobile View
+.mobile {
+  .component-game-details {
+    .game-control-btns {
+      .btn-cancel-launch {
+        background: transparent;
+        border: 0;
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          border: 0;
+        }
+      }
+    }
+  }
+}

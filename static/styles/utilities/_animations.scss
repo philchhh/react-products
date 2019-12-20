@@ -1,0 +1,148 @@
+// Animations
+// ----------------------------------------------------------------------
+// Simple Blink
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  -webkit-animation: blink 1s step-start 0s infinite;
+  animation: blink 1s step-start 0s infinite;
+}
+
+// Flashing
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flashing {
+  -webkit-animation: flash linear 1.5s infinite;
+  animation: flash linear 1.5s infinite;
+}
+
+// Pulsate
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.pulsate {
+  opacity: 0.5;
+  -webkit-animation: pulsate 1.2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  animation: pulsate 1.2s ease-out;
+  animation-iteration-count: infinite;
+}
+
+// Jump & Pulsate
+@-webkit-keyframes jumpPulse {
+  0% {
+    opacity: 0.6;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  20% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  60% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  80% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.6;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes jumpPulse {
+  0% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
+
+.jump-pulse {
+  font-weight: bold;
+  opacity: 0.6;
+  -webkit-animation: jumpPulse 1.5s ease 0s infinite normal;
+  animation: jumpPulse 1.5s ease 0s infinite normal;
+}

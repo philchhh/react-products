@@ -1,0 +1,144 @@
+// Helper Classes
+// ----------------------------------------------------------------------
+.media,
+.media-body {
+  display: block;
+  width: auto;
+  overflow: hidden;
+  margin-bottom: rem($pm-size-05);
+}
+
+.media {
+  .media-aside {
+    display: block;
+    float: left;
+    width: auto;
+    margin-right: rem($pm-size-1);
+  }
+  .media-aside img {
+    max-width: rem(100px);
+    margin-bottom: rem($pm-size-05);
+  }
+}
+
+.full-height {
+  height: 100%;
+}
+
+.is-marginless {
+  margin: 0 !important;
+}
+
+.is-bold {
+  font-weight: bold !important;
+}
+
+.ir {
+  display: block;
+  border: 0;
+  text-indent: (-9999px);
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+
+.ir br {
+  display: none;
+}
+
+.hidden,
+[hidden] {
+  display: none !important;
+  visibility: hidden;
+}
+
+.sr-only,
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clear {
+  clear: both;
+  line-height: 1px;
+  height: 1px;
+}
+
+.print-only {
+  display: none;
+}
+
+.fl_left {
+  float: left;
+}
+
+.fl_right {
+  float: right;
+}
+
+.ta_right {
+  text-align: right;
+}
+
+.ta_center {
+  text-align: center;
+}
+
+.vertical-center {
+  position: absolute;
+  width: auto;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+.get-flash {
+  .vertical-center {
+    width: 100%;
+  }
+}
+
+.blurred {
+  @include blurred(5px);
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+@media screen\0 {
+  .blurred {
+    opacity: 0.3;
+  }
+}

@@ -1,0 +1,109 @@
+// Pagination
+// ----------------------------------------------------------------------
+.dropdown {
+  width: 100%;
+  position: relative;
+
+  .dropdown-toggle {
+    min-width: rem(120px);
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    padding: rem($pm-size-05 + 2) rem($pm-size-2) rem($pm-size-05 + 2) rem($pm-size-05);
+    text-shadow: none;
+
+    &:focus {
+      outline: 0 none;
+    }
+
+    .caret {
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: rem(5px) solid;
+      border-right: rem(5px) solid transparent;
+      border-left: rem(5px) solid transparent;
+      position: absolute;
+      top: 50%;
+      right: rem(7px);
+      @include transform(translateY(-50%));
+    }
+  }
+
+  button {
+    display: inline-block;
+    padding: rem(6px) rem(12px);
+  }
+
+  .dropdown-menu {
+    background-color: $base-white;
+    background-clip: padding-box;
+    display: none;
+    float: left;
+    min-width: rem(160px);
+    font-size: rem(14px);
+    text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: rem(5px) 0;
+    border: 1px solid rgba(#000, 0.15);
+    border-radius: rem(4px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+    box-shadow: 0 rem(6px) rem(12px) rgba(#000, 0.175);
+
+    @include responds-to(max-screen-height) {
+      position: fixed;
+      top: auto;
+      left: auto;
+    }
+
+    > li {
+      > a {
+        display: block;
+        color: $base-black;
+        text-decoration: none;
+        line-height: 1.4;
+        clear: both;
+        padding: rem(3px) rem($pm-size-2);
+        white-space: nowrap;
+      }
+
+      &.sub-cat {
+        > a {
+          padding-left: rem($pm-size-3 + 3);
+        }
+      }
+
+      &.active {
+        background: $base-lighter-gray;
+      }
+    }
+  }
+
+  &.open {
+    .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .dropdown-header {
+    display: block;
+    font-size: rem(12px);
+    color: #777;
+    line-height: 1.4;
+    padding: rem(3px) erm(20px);
+    white-space: nowrap; // TODO: This is not ideal - remove when tested
+  }
+
+  .dropdown-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+  }
+}

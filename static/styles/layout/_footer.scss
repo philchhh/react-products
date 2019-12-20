@@ -1,0 +1,67 @@
+// Footer
+// ----------------------------------------------------------------------
+.footer {
+  background: $base-lighter-gray;
+  height: $footer-height-sm;
+  position: relative;
+  z-index: 990;
+  border-top: 1px solid $base-black;
+
+  @include responds-to(small-screen) {
+    height: rem($footer-height-md);
+  }
+
+  @include responds-to(wide-screen) {
+    height: rem($footer-height-lg);
+  }
+
+  @include responds-to(iphonex) {
+    height: rem($footer-height-sm);
+    overflow: visible !important; // TODO: Good lord... figure this out!
+  }
+
+  h3 {
+    font-size: rem(14px);
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0 0 rem($pm-size-05 - 3) 0;
+
+    @include responds-to(wide-screen) {
+      font-size: rem(18px);
+    }
+  }
+
+  .grid-2 {
+    @include responds-to(small-screen) {
+      width: $grid-3;
+    }
+
+    @include responds-to(full-screen) {
+      width: $grid-2;
+    }
+
+    @include responds-to(iphonex) {
+      width: 68%; // This is for mobile comp points display
+    }
+  }
+
+  .grid-4 {
+    @include responds-to(small-screen) {
+      width: $grid-3;
+    }
+
+    @include responds-to(full-screen) {
+      width: $grid-4;
+    }
+  }
+
+  .grid-6 {
+    @include responds-to(handheld) {
+      width: $grid-6;
+    }
+
+    @include responds-to(wide-screen) {
+      width: $grid-6;
+    }
+  }
+}

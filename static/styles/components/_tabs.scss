@@ -1,0 +1,33 @@
+// Tabs
+// ----------------------------------------------------------------------
+.component-tabs {
+  ul {
+    > li {
+      display: block;
+      margin: rem(4px) 0;
+
+      @include responds-to(small-screen) {
+        display: inline-block;
+        margin: rem(4px);
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      > a {
+        background: $base-black;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: rem($pm-size-1) rem($pm-size-2);
+        border-radius: rem($pm-size-05 -1);
+
+        &:hover,
+        &:focus {
+          background: $base-black;
+        }
+      }
+    }
+  }
+}

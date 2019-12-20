@@ -1,0 +1,263 @@
+// forms.scss
+
+// ----------------------------------------------------------------------
+.form-row {
+  clear: both;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+fieldset {
+  display: block;
+  padding: rem($pm-size-2) rem($pm-size-1) rem($pm-size-1) rem($pm-size-1);
+  border: 0;
+  border-bottom: 1px solid $base-lighter-gray;
+
+  legend {
+    float: left;
+    font-size: rem(18px);
+    width: 100%;
+    position: relative;
+    margin-bottom: rem($pm-size-1 - 4);
+  }
+}
+
+label {
+  display: block;
+  font-size: rem(15px);
+  position: relative;
+  margin-bottom: rem($pm-size-05 - 2);
+}
+
+textarea {
+  background: transparent;
+  resize: vertical;
+  padding: rem($pm-size-1);
+  border: 1px solid $base-gray;
+  outline: 0 none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.searchField {
+  margin-top: rem($pm-size-2);
+}
+
+.form-control {
+  display: block;
+  font-size: rem(14px);
+  line-height: 1.4;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  height: rem(34px);
+  padding: rem($pm-size-05) rem($pm-size-1);
+  background-color: $base-white;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: rem(4px);
+  box-shadow: inset 0 1px 1px rgba(#000, 0.075);
+
+  &:focus {
+    border-color: #66afe9;
+    outline: 0 none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  }
+}
+
+.form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.form-control[disabled],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+  background: $base-white;
+  display: inline-block;
+  width: 100%;
+  min-height: rem(36px);
+  padding: 0 rem(8px);
+  border: 1px solid $base-light-gray;
+  outline: 0 none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+select {
+  background: transparent;
+  min-height: rem(36px);
+  min-width: rem(120px);
+  width: 100%;
+  padding: rem(8px) rem(5px) rem(5px) rem(5px);
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-appearance: none;
+  border-radius: 0;
+
+  &.is-medium {
+    min-width: rem(180px);
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: 0 none;
+}
+
+input[type="submit"] {
+  background: transparent;
+  display: inline-block;
+  font-size: rem(14px);
+  width: auto;
+  height: rem($pm-size-4);
+  min-width: rem($pm-size-10);
+  color: $base-white;
+  text-align: center;
+  padding: 0 rem($pm-size-1);
+  border: 0;
+  border-radius: rem(3px);
+  @include transition(all, 0.3s, ease-out);
+
+  &:hover,
+  &:focus {
+    background: $base-black;
+  }
+}
+
+// Remove the inner border and padding in Firefox.
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+// Form group
+.form-group {
+  text-align: left;
+  position: relative;
+
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"] {
+    display: block;
+    border-radius: rem(3px);
+
+    &.invalid {
+      border: 2px solid $base-validation-color;
+    }
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  input[type="submit"] {
+    display: block;
+    font-family: $base-font-bold;
+    min-width: rem(95px);
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: $base-black;
+}
+
+:-moz-placeholder {
+  color: $base-black;
+}
+
+::-moz-placeholder {
+  color: $base-black;
+}
+
+:-ms-input-placeholder {
+  color: $base-black;
+}
+
+input[placeholder],
+[placeholder],
+*[placeholder] {
+  color: $base-black;
+}

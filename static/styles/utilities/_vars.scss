@@ -1,0 +1,102 @@
+// Variables
+// ----------------------------------------------------------------------
+
+// Base
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+// Base branding
+$base-bg-color: #fff;
+$base-branding-color: #aaa;
+$base-text-color: #333;
+$base-link-color: #374c67;
+$base-validation-color: #b82a3d;
+$base-red: #f20400;
+$base-white: #fff;
+$base-blue: #002f9c;
+$base-green: #64be02;
+$base-yellow: #ddc453;
+$base-black: #191919;
+$base-blacker: #333;
+$base-dark-gray: #666;
+$base-gray: #999;
+$base-light-gray: #ccc;
+$base-lighter-gray: #ddd;
+
+// Fonts
+$base-font: Arial, Helvetica, Gadget, sans-serif;
+
+// Use only for custom(external) fonts
+$base-font-italic: $base-font;
+$base-font-bold: $base-font;
+$base-font-bold-italic: $base-font;
+$base-font-medium: $base-font;
+$base-font-medium-italic: $base-font;
+
+// Grid sizes
+$grid-1: 6.86666666667%;
+$grid-2: 16.6666666667%;
+$grid-3: 25%;
+$grid-4: 33.3333333333%;
+$grid-5: 40.7333333333%;
+$grid-6: 50%;
+$grid-7: 57.6666666667%;
+$grid-8: 66.6666666667%;
+$grid-9: 75%;
+$grid-10: 83.3333333337%;
+$grid-11: 91.5333333333%;
+$grid-12: 100%;
+$grid-50: 50%;
+
+// Base container widths
+$base-width: 90rem; // 1440px
+$base-width-fullhd: 78.75rem; // 1260px
+$base-width-full: 64rem; // 1024px
+$base-width-desktop: 48rem; // 768px
+$base-width-tablet: 40rem; // 640px
+$base-width-xs: 18.75rem; // 300px
+
+// Base container widths in pixels
+$base-width-px: 1440;
+$base-width-fullhd-px: 1260;
+$base-width-full-px: 1024;
+$base-width-desktop-px: 768;
+$base-width-tablet-px: 640;
+$base-width-xs-px: 300;
+
+// Responsive sizes
+$tablet: $base-width-tablet;
+$desktop: $base-width-desktop;
+$mediumscreen: $base-width-full;
+$widescreen: $base-width-fullhd;
+$fullscreen: $base-width;
+
+// Screen heights
+$min-screen-height-xs: 414px;
+$min-screen-height-sm: 35.4375rem; // 567px
+$min-screen-height-md: 41.6875rem; // 667px
+$min-screen-height: 45.75rem; // 732px;
+$min-screen-height-lg: 55rem; // 880px;
+
+// Padding and/or margin sizes for consistency
+$pm-size-05: 6px;
+$pm-size-1: 12px;
+$pm-size-2: 20px;
+$pm-size-3: 30px;
+$pm-size-4: 40px;
+$pm-size-5: 50px;
+$pm-size-6: 60px;
+$pm-size-7: 70px;
+$pm-size-8: 80px;
+$pm-size-9: 90px;
+$pm-size-10: 100px;
+
+// Element sizes
+$header-height-mobile: 94px;
+$utility-bar-height: 44px;
+$footer-height-sm: 60px;
+$footer-height-md: 150px;
+$footer-height-lg: 200px;
+$chat-bottom-spacing: 155px;
+$game-details-bottom-spacing: 120px;
+$iframe-close-btn-bar: 35px;

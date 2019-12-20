@@ -1,0 +1,309 @@
+// =Buttons
+// ------------------------------------------------------
+.btn,
+.common-btn {
+  background: $base-black;
+  display: inline-block;
+  font-size: rem(14px);
+  font-weight: bold;
+  color: $base-white;
+  width: auto;
+  vertical-align: top;
+  margin: rem($pm-size-05) 0;
+  padding: rem($pm-size-05 + 2) rem($pm-size-3) rem($pm-size-05 + 1) rem($pm-size-3);
+  border: 0;
+  border-radius: rem(3px);
+  outline: 0 none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  @include transition(all, 0.2s, ease-in-out);
+
+  @include responds-to(handheld) {
+    margin-right: rem($pm-size-05 - 2);
+  }
+
+  &:hover {
+    background: #000;
+  }
+
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  &.btn-prev {
+    &::before {
+      display: inline-block;
+      content: "";
+      position: relative;
+      top: -1px;
+      right: rem(4px);
+      padding: rem(4px);
+      border: solid $base-white;
+      border-width: 0 rem(3px) rem(3px) 0;
+      @include transform(rotate(135deg));
+    }
+  }
+
+  &.btn-next {
+    &::after {
+      display: inline-block;
+      content: "";
+      padding: rem(4px);
+      position: relative;
+      top: -1px;
+      left: rem(4px);
+      border: solid $base-white;
+      border-width: 0 rem(3px) rem(3px) 0;
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  &.btn-back {
+    background: transparent;
+    display: block;
+    height: rem(30px);
+    width: rem(20px);
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    outline: 0 none;
+
+    > span {
+      display: none;
+    }
+
+    &::after {
+      display: inline-block;
+      content: "";
+      height: rem(15px);
+      width: rem(15px);
+      position: relative;
+      padding: rem(3px);
+      border: solid $base-white;
+      border-width: 0 rem(3px) rem(3px) 0;
+      @include transform(rotate(133deg));
+    }
+  }
+}
+
+.btn-home {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.btn-group,
+.btn-group-vertical {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+
+  > .btn-group {
+    display: table-cell;
+    float: none;
+    width: 1%;
+
+    .btn {
+      width: 100%;
+      margin: 0;
+      padding: rem($pm-size-05) 0;
+    }
+  }
+}
+
+.btn-panel {
+  background: #000;
+  display: block;
+  min-height: rem(75px);
+  min-width: rem(20px);
+  padding: 0;
+  border: 1px solid transparent;
+  border-left: 0;
+  border-top-right-radius: rem($pm-size-05);
+  border-bottom-right-radius: rem($pm-size-05);
+  cursor: pointer;
+  outline: 0 none;
+
+  &::after {
+    display: block;
+    content: "";
+    height: rem(10px);
+    width: rem(10px);
+    margin: rem(-5px) 0 0 rem(-8px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: solid $base-white;
+    border-width: 0 rem(2px) rem(2px) 0;
+    @include transform(rotate(-45deg));
+    @include transition(all, 0.5s, ease-in-out);
+  }
+
+  &.btn-panel-close {
+    &::after {
+      margin-left: rem(-3px);
+      @include transform(rotate(135deg));
+    }
+  }
+}
+
+.btn-icon {
+  display: inline-block;
+  color: $base-white;
+  text-indent: -999em;
+  position: relative;
+  margin: 0 rem($pm-size-1);
+  border: 0;
+  outline: 0 none;
+  cursor: pointer;
+  @include transition(all, 0.2s, ease-in-out);
+
+  &.icon-close {
+    background-color: transparent;
+    height: rem($pm-size-3);
+    width: rem($pm-size-3);
+    text-indent: rem(-9999px);
+    position: absolute;
+    border: 0;
+    border-radius: 1px;
+
+    &::before,
+    &::after {
+      background: $base-white;
+      content: " ";
+      width: rem($pm-size-3);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: rem(6px);
+      border: 0;
+    }
+
+    &::before {
+      @include transform(rotate(45deg));
+    }
+
+    &::after {
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  &:hover,
+  &:focus {
+    @include scale(1.1);
+  }
+}
+
+.btn-close {
+  background: $base-black;
+  color: $base-white;
+  text-align: center;
+  position: relative;
+  padding: rem(2px) rem($pm-size-05);
+  border: 1px solid $base-white;
+  border-radius: rem(3px);
+  box-shadow: 1px 1px 2px 2px rgba($base-dark-gray, 0.6);
+}
+
+.btn-menu {
+  background: $base-blacker;
+  color: $base-white;
+  font-size: rem(16px);
+  font-weight: bold;
+  height: rem(26px);
+  width: rem(26px);
+  position: relative;
+  padding: rem(2px) rem(6px);
+  border: 1px solid $base-white;
+  outline: 0 none;
+
+  > span {
+    background: $base-white;
+    display: block;
+    height: 2px;
+    width: 100%;
+    position: relative;
+    margin: rem(3px) 0;
+  }
+
+  &.active {
+    background: $base-white;
+
+    > span {
+      background: $base-blacker;
+    }
+  }
+}
+
+.btn-svg-icon {
+  background: transparent;
+  display: inline-block;
+  height: rem(26px);
+  width: rem(26px);
+  position: relative;
+  margin: rem(8px) rem($pm-size-1) 0 rem($pm-size-1);
+  border: 1px solid transparent;
+  outline: 0 none;
+  cursor: pointer;
+  @include transition(all, 0.1s, ease-in);
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+.btn-elec-icon {
+  background: transparent;
+  display: inline-block;
+  height: rem(26px);
+  width: rem(26px);
+  position: relative;
+  margin: rem(8px) rem($pm-size-1) 0 rem($pm-size-1);
+  border: 1px solid transparent;
+  outline: 0 none;
+  cursor: pointer;
+  @include transition(all, 0.1s, ease-in);
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+.btn-play {
+  display: block;
+  height: rem(40px);
+  width: rem(40px);
+  text-indent: rem(-9999px);
+  position: relative;
+  border: 2px solid $base-lighter-gray;
+  border-radius: 50%;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-left: rem(1px);
+    border-top: rem(7px) solid transparent;
+    border-bottom: rem(7px) solid transparent;
+    border-left: rem(9px) solid $base-lighter-gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}

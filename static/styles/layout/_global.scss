@@ -1,0 +1,58 @@
+// global.scss
+// ----------------------------------------------------------------------
+
+// =Layout Wrappers
+// ------------------------------------------------------
+#root,
+.wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.main {
+  position: relative;
+  height: calc(100% - #{$header-height-mobile + $footer-height-sm});
+
+  &.uge-fullscreen,
+  &.paytable-visible {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    @include responds-to(small-screen) {
+      height: calc(100% - #{$utility-bar-height});
+    }
+
+    @include responds-to(iphonex) {
+      height: 100%;
+    }
+  }
+
+  @include responds-to(small-screen) {
+    height: calc(100% - #{$utility-bar-height});
+    overflow-x: hidden;
+    padding-bottom: rem($footer-height-md);
+    margin-bottom: rem(-$footer-height-md);
+  }
+
+  @include responds-to(wide-screen) {
+    padding-bottom: rem($footer-height-lg);
+    margin-bottom: rem(-$footer-height-lg);
+  }
+
+  @media screen and (max-height: $min-screen-height-sm) {
+    height: calc(100% - #{$header-height-mobile + $footer-height-sm});
+    overflow-x: auto;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.container {
+  max-width: $base-width-full;
+
+  @include responds-to(small-screen) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,201 @@
+// grid.scss
+// ----------------------------------------------------------------------
+.grid-table {
+  display: block;
+  width: 100%;
+  position: relative;
+
+  @include responds-to(handheld) {
+    display: table;
+  }
+
+  .grid-table-cell {
+    @include responds-to(handheld) {
+      display: table-cell;
+    }
+  }
+}
+
+.grid {
+  position: relative;
+}
+
+@include responds-to(small-screen) {
+  .grid-row {
+    @include flexbox();
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .grid {
+    &.grid-last {
+      margin-left: auto;
+    }
+  }
+
+  .grid-50 {
+    width: $grid-50;
+  }
+
+  .grid-1 {
+    width: $grid-1;
+  }
+
+  .grid-2 {
+    width: $grid-2;
+  }
+
+  .grid-3 {
+    width: $grid-3;
+  }
+
+  .grid-4 {
+    width: $grid-4;
+  }
+
+  .grid-5 {
+    width: $grid-5;
+  }
+
+  .grid-6 {
+    width: $grid-6;
+  }
+
+  .grid-7 {
+    width: $grid-7;
+  }
+
+  .grid-8 {
+    width: $grid-8;
+  }
+
+  .grid-9 {
+    width: $grid-9;
+  }
+
+  .grid-10 {
+    width: $grid-10;
+  }
+
+  .grid-11 {
+    width: $grid-11;
+  }
+
+  .grid-12 {
+    width: $grid-12;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// Use when no media queries are needed
+.grid-flex {
+  @include flexbox();
+
+  @include responds-to(max-width-handheld) {
+    &:not(.gamelist-utilities):not(.payout-group-payouts):not(.line-items):not(.alert-block):not(.uoc-option):not(.paytable-header) {
+      @include switch-to-columns();
+    }
+    @include justify-center();
+  }
+
+  &.ac {
+    @include align-items-center();
+  }
+
+  &.ab {
+    @include align-items-baseline();
+  }
+
+  &.js {
+    @include justify-center();
+  }
+
+  .grid {
+    &.grid-last {
+      margin-left: auto;
+    }
+  }
+
+  .grid-50 {
+    width: $grid-50;
+  }
+
+  .grid-1 {
+    width: $grid-1;
+  }
+
+  .grid-2 {
+    width: $grid-2;
+  }
+
+  .grid-3 {
+    width: $grid-3;
+  }
+
+  .grid-4 {
+    width: $grid-4;
+  }
+
+  .grid-5 {
+    width: $grid-5;
+  }
+
+  .grid-6 {
+    width: $grid-6;
+  }
+
+  .grid-7 {
+    width: $grid-7;
+  }
+
+  .grid-8 {
+    width: $grid-8;
+  }
+
+  .grid-9 {
+    width: $grid-9;
+  }
+
+  .grid-10 {
+    width: $grid-10;
+  }
+
+  .grid-11 {
+    width: $grid-11;
+  }
+
+  .grid-12 {
+    width: $grid-12;
+  }
+}
+
+.grid-row-inline {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+@include responds-to(max-width-small-screen) {
+  .grid-mb-row {
+    @include flexbox();
+
+    .grid-mb-3 {
+      min-width: $grid-2;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+
+    .grid-mb-6 {
+      width: $grid-6;
+      padding: 0 rem($pm-size-1);
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}

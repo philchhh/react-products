@@ -1,0 +1,226 @@
+// Modal
+// ----------------------------------------------------------------------
+.modal,
+.modal-open {
+  padding: 0 !important; // '!important' is needed because of unibootstrap's 10px padding on the body
+  overflow: hidden;
+}
+
+.modal {
+  display: none;
+  outline: 0 none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-dialog {
+  color: $base-black;
+  width: auto;
+  position: relative;
+  margin: rem($pm-size-1);
+
+  @include responds-to(handheld) {
+    max-width: rem(600px);
+    margin: rem(30px) auto;
+    .modal-content {
+      box-shadow: 0 rem(5px) rem(15px) rgba(#000, 0.5);
+    }
+  }
+
+  @include responds-to(wide-screen) {
+    &.modal-lg {
+      max-width: rem(768px);
+    }
+  }
+
+  h4 {
+    font-size: rem(24px);
+    min-height: rem(30px);
+  }
+
+  .btn {
+    @include gradient(#949494, #6c6c6c, vertical);
+    color: $base-white;
+    text-shadow: 0 1px 0 #666;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+
+    &:hover,
+    &:focus {
+      background: #aaa;
+      border: 1px solid #aaa;
+    }
+
+    &:disabled {
+      @include gradient(#d0d0d0, #a5a5a5, vertical);
+      text-shadow: 0 1px 0 #999;
+    }
+
+    &.active {
+      @include gradient(#5e5e5e, #3c3c3c, vertical);
+      color: white;
+      border: 1px solid #aaa;
+      box-shadow: inset 2px 2px 2px #000;
+    }
+  }
+}
+
+.uge-modal-container {
+  .modal-dialog {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    .modal-content {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    @include responds-to(small-screen) {
+      height: auto;
+      max-width: rem(600px);
+      margin: rem(30px) auto;
+
+      .modal-content {
+        min-height: none;
+        box-shadow: 0 5px 15px rgba(#000, 0.5);
+      }
+    }
+
+    @include responds-to(wide-screen) {
+      &.modal-lg {
+        max-width: rem(768px);
+      }
+    }
+
+    @include responds-to(iphonex) {
+      max-width: none;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+
+      .modal-content {
+        width: 100%;
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+.modal-dialog .emphasize,
+.form-horizontal .emphasize {
+  @include gradient(#616161, #393939, vertical);
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translateY(-25%);
+}
+
+.modal.in .modal-dialog {
+  transform: translate(0);
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-content {
+  position: relative;
+  background-color: $base-white;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(#000, 0.2);
+  border-radius: rem(6px);
+  outline: 0 none;
+  box-shadow: 0 rem(3px) rem(9px) rgba(#000, 0.5);
+}
+
+.modal-backdrop {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop.in {
+  opacity: 0.5;
+}
+
+.modal-header {
+  background: #9e9e9e;
+  color: $base-white;
+  padding: rem(8px);
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-header .close {
+  margin-top: -2px;
+}
+
+.modal-title {
+  line-height: 1.4;
+  margin: 0;
+}
+
+.modal-body {
+  position: relative;
+  padding: rem(15px);
+
+  &.uge-modal {
+    padding: 0;
+  }
+}
+
+.modal-footer {
+  text-align: right;
+  padding: rem(15px);
+  border-top: 1px solid #e5e5e5;
+
+  .btn {
+    display: inline-block;
+    margin: rem($pm-size-05) 0 rem($pm-size-05) 2.5%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .btn + .btn {
+    margin-bottom: 0;
+  }
+
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+
+  .optionsActionBtn {
+    width: rem(130px);
+  }
+}
+
+.modal-scrollbar-measure {
+  width: rem(50px);
+  height: rem(50px);
+  overflow: scroll;
+  position: absolute;
+  top: rem(-9999px);
+}
