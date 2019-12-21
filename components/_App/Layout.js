@@ -12,15 +12,13 @@ function Layout({ children, user }) {
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
         <link
           rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"
+          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"
         />
         <link rel="stylesheet" type="text/css" href="/static/styles/main.css" />
         <title>ReactReserve</title>
       </Head>
       <Header user={user} />
-      <Container text style={{ paddingTop: "1rem" }}>
-        {children}
-      </Container>
+      <Container>{children}</Container>
     </>
   );
 }

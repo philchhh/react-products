@@ -16,10 +16,6 @@
   }
 }
 
-.grid {
-  position: relative;
-}
-
 @include responds-to(small-screen) {
   .grid-row {
     @include flexbox();
@@ -27,10 +23,8 @@
     flex-wrap: wrap;
   }
 
-  .grid {
-    &.grid-last {
-      margin-left: auto;
-    }
+  .grid-last {
+    margin-left: auto;
   }
 
   .grid-50 {
@@ -93,9 +87,7 @@
   @include flexbox();
 
   @include responds-to(max-width-handheld) {
-    &:not(.gamelist-utilities):not(.payout-group-payouts):not(.line-items):not(.alert-block):not(.uoc-option):not(.paytable-header) {
-      @include switch-to-columns();
-    }
+    @include switch-to-columns();
     @include justify-center();
   }
 
@@ -111,10 +103,8 @@
     @include justify-center();
   }
 
-  .grid {
-    &.grid-last {
-      margin-left: auto;
-    }
+  &.grid-last {
+    margin-left: auto;
   }
 
   .grid-50 {
@@ -175,27 +165,4 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   justify-content: flex-start;
-}
-
-@include responds-to(max-width-small-screen) {
-  .grid-mb-row {
-    @include flexbox();
-
-    .grid-mb-3 {
-      min-width: $grid-2;
-
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-
-    .grid-mb-6 {
-      width: $grid-6;
-      padding: 0 rem($pm-size-1);
-
-      &:first-child {
-        padding-left: 0;
-      }
-    }
-  }
 }

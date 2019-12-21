@@ -1,10 +1,12 @@
 function Cards({ items }) {
   return (
-    <div className="container grid-row">
+    <div className="container cards grid-row">
       {items.map((product, i) => (
-        <div key={product.childKey} className="card grid-4">
-          {product.header}
-        </div>
+        <a key={product.childKey} href={product.href} className="card grid-4">
+          <img src={product.image} alt={product.header} />
+          <h3>{product.header}</h3>
+          <span className="card-meta">{product.meta}</span>
+        </a>
       ))}
     </div>
   );

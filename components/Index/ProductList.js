@@ -6,9 +6,7 @@ function ProductList({ products }) {
     return products.map(product => ({
       header: product.name,
       image: product.mediaUrl,
-      color: "teal",
       meta: `$${product.price}`,
-      fluid: true,
       childKey: product._id,
       href: `/product?_id=${product._id}`
     }));
@@ -16,13 +14,13 @@ function ProductList({ products }) {
 
   return (
     <>
-      <Card.Group
+      <Cards items={mapProductsToItems(products)} />
+      {/* <Card.Group
         itemsPerRow={3}
         centered
         stackable
         items={mapProductsToItems(products)}
-      />
-      {/* <Cards items={mapProductsToItems(products)} /> */}
+      /> */}
     </>
   );
 }

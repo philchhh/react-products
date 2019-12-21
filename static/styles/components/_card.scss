@@ -1,184 +1,192 @@
 // Game Card/Tiles
 // ----------------------------------------------------------------------
-.card {
-  text-decoration: none;
-  //@include transition(all, 0.2s, ease-in-out);
+.cards {
+  .card {
+    text-decoration: none;
+    margin: rem(20px 10px);
+    border: 1px solid $base-black;
+    @include transition(all, 0.2s, ease-in-out);
 
-  &:hover,
-  &:focus {
-    //@include scale(1.1);
-  }
+    @include responds-to(small-screen) {
+      width: calc(#{$grid-4} - 20px);
+    }
 
-  @media (hover: none), (hover: on-demand) {
-    @include scale(1);
-  }
+    &:hover,
+    &:focus {
+      @include scale(1.05);
+    }
 
-  &:hover,
-  &:focus {
-    .card-media {
-      .card-title,
-      .card-more-info {
-        &::before {
-          background: rgba($base-black, 0.4);
-          content: "";
-          height: 100%;
+    @media (hover: none), (hover: on-demand) {
+      @include scale(1);
+    }
+
+    &:hover,
+    &:focus {
+      .card-media {
+        .card-title,
+        .card-more-info {
+          &::before {
+            background: rgba($base-black, 0.4);
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        .card-hover-start,
+        .card-hover-details {
+          opacity: 1;
+        }
+      }
+
+      .card-tile-media {
+        background: transparent;
+        min-width: rem(110px);
+        min-height: rem(110px);
+        text-align: center;
+        position: relative;
+        padding: 0;
+        border: 0;
+        outline: 0 none;
+        cursor: pointer;
+
+        .card-title {
+          background: rgba(#000, 0.7);
+          display: block;
+          color: $base-white;
+          font-size: rem(10px);
+          font-weight: bold;
+          min-height: rem(20px);
           width: 100%;
+          text-align: center;
+          padding: rem(4px) rem($pm-size-05);
+          opacity: 0;
           position: absolute;
           top: 0;
+          left: 0;
+          z-index: 999;
+          @include transition(all, 0.4s, ease-in-out);
+        }
+
+        .tile-loader {
+          background: rgba(0, 0, 0, 0.25);
+          height: 100%;
+          width: 100%;
+          min-width: rem(120px);
+          min-height: rem(120px);
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1999;
+
+          @include responds-to(medium-screen) {
+            min-width: rem(150px);
+            min-height: rem(150px);
+          }
+
+          > .loader {
+            pointer-events: none;
+            cursor: default;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: rem(-25px) 0 0 rem(-25px);
+            z-index: 2999;
+          }
+        }
+
+        .tile-ribbon {
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: rem(20px);
+        }
+
+        .tile-pending {
+          background: #690d6a;
+          font-size: rem(12px);
+          font-weight: bold;
+          color: $base-white;
+          width: 100%;
+          min-height: rem(20px);
+          text-align: center;
+          text-transform: uppercase;
+          word-break: break-all;
+          padding: rem(5px) rem($pm-size-05);
+          position: absolute;
+          bottom: 0;
           left: 0;
         }
       }
 
-      .card-hover-start,
-      .card-hover-details {
-        opacity: 1;
-      }
-    }
-
-    .card-tile-media {
-      background: transparent;
-      min-width: rem(110px);
-      min-height: rem(110px);
-      text-align: center;
-      position: relative;
-      padding: 0;
-      border: 0;
-      outline: 0 none;
-      cursor: pointer;
-
-      .card-title {
-        background: rgba(#000, 0.7);
-        display: block;
+      // These are some base styles for expanding/collapsing game cards (phase 3)
+      .card-more-info {
+        background: transparent;
+        font-size: 0;
         color: $base-white;
-        font-size: rem(10px);
-        font-weight: bold;
-        min-height: rem(20px);
         width: 100%;
-        text-align: center;
-        padding: rem(4px) rem($pm-size-05);
+        height: 30%;
+        text-indent: rem(-9999px);
+        cursor: pointer;
+        border: 0;
+        outline: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 99;
         opacity: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        @include transition(all, 0.4s, ease-in-out);
-      }
-
-      .tile-loader {
-        background: rgba(0, 0, 0, 0.25);
-        height: 100%;
-        width: 100%;
-        min-width: rem(120px);
-        min-height: rem(120px);
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1999;
-
-        @include responds-to(medium-screen) {
-          min-width: rem(150px);
-          min-height: rem(150px);
-        }
-
-        > .loader {
-          pointer-events: none;
-          cursor: default;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin: rem(-25px) 0 0 rem(-25px);
-          z-index: 2999;
-        }
-      }
-
-      .tile-ribbon {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: rem(20px);
-      }
-
-      .tile-pending {
-        background: #690d6a;
-        font-size: rem(12px);
-        font-weight: bold;
-        color: $base-white;
-        width: 100%;
-        min-height: rem(20px);
-        text-align: center;
-        text-transform: uppercase;
-        word-break: break-all;
-        padding: rem(5px) rem($pm-size-05);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
-    }
-
-    // These are some base styles for expanding/collapsing game cards (phase 3)
-    .card-more-info {
-      background: transparent;
-      font-size: 0;
-      color: $base-white;
-      width: 100%;
-      height: 30%;
-      text-indent: rem(-9999px);
-      cursor: pointer;
-      border: 0;
-      outline: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 99;
-      opacity: 0;
-      @include transition(all, 0.2s, ease-in-out);
-
-      > span {
-        background: rgba(#000, 0.7);
-        display: block;
-        min-height: rem($pm-size-2);
-        width: 100%;
-        padding: rem($pm-size-05) 0;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
-        &::after {
-          display: block;
-          content: "";
-          width: 0;
-          height: 0;
-          position: relative;
-          margin: 0 auto;
-          border-style: solid;
-          border-width: rem(8px) rem(8px) 0 rem(8px);
-          border-color: $base-white transparent transparent transparent;
-        }
-
-        @include responds-to(handheld) {
-          padding: rem(8px) 0;
-
-          &::after {
-            border-width: rem(10px) rem(10px) 0 rem(10px);
-          }
-        }
-      }
-
-      &.active {
-        opacity: 1;
+        @include transition(all, 0.2s, ease-in-out);
 
         > span {
-          background: rgba(#a7140f, 1);
+          background: rgba(#000, 0.7);
+          display: block;
+          min-height: rem($pm-size-2);
+          width: 100%;
+          padding: rem($pm-size-05) 0;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          &::after {
+            display: block;
+            content: "";
+            width: 0;
+            height: 0;
+            position: relative;
+            margin: 0 auto;
+            border-style: solid;
+            border-width: rem(8px) rem(8px) 0 rem(8px);
+            border-color: $base-white transparent transparent transparent;
+          }
+
+          @include responds-to(handheld) {
+            padding: rem(8px) 0;
+
+            &::after {
+              border-width: rem(10px) rem(10px) 0 rem(10px);
+            }
+          }
+        }
+
+        &.active {
           opacity: 1;
 
-          &:after {
-            border-width: 0 rem(8px) rem(8px) rem(8px);
-            border-color: transparent transparent $base-white transparent;
+          > span {
+            background: rgba(#a7140f, 1);
+            opacity: 1;
 
-            @include responds-to(handheld) {
-              border-width: 0 rem(10px) rem(10px) rem(10px);
+            &:after {
+              border-width: 0 rem(8px) rem(8px) rem(8px);
+              border-color: transparent transparent $base-white transparent;
+
+              @include responds-to(handheld) {
+                border-width: 0 rem(10px) rem(10px) rem(10px);
+              }
             }
           }
         }
