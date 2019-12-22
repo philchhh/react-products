@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { Container } from "semantic-ui-react";
 
 import Header from "./Header";
 import HeadContent from "./HeadContent";
+import Wrapper from "../ui/Wrapper";
+import Container from "../ui/Container";
 
 function Layout({ children, user }) {
   return (
@@ -18,7 +19,9 @@ function Layout({ children, user }) {
         <title>ReactReserve</title>
       </Head>
       <Header user={user} />
-      <Container>{children}</Container>
+      <Wrapper>
+        <Container>{children}</Container>
+      </Wrapper>
     </>
   );
 }

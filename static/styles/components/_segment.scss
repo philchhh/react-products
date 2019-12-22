@@ -1,0 +1,9 @@
+.segment {
+  background: #fff;
+  position: relative;
+  margin: rem($pm-size-1 0);
+  padding: rem($pm-size-1);
+  border-radius: rem($pm-size-1);
+  border: 1px solid rgba($base-blue, 0.15);
+  box-shadow: 0 1px 2px 0 rgba($base-gray, 0.15);
+}

@@ -1,0 +1,67 @@
+// UGE Options Panel
+// ------------------------------------------------------
+.message {
+  position: relative;
+  margin: 0 auto rem($pm-size-1) auto;
+  padding: rem($pm-size-1);
+
+  &.rounded {
+    border-radius: rem($pm-size-05);
+  }
+
+  .message-header {
+    position: relative;
+
+    > h3 {
+      font-size: rem($base-font-size);
+      font-weight: normal;
+      margin: 0;
+
+      @include responds-to(handheld) {
+        font-size: rem(20px);
+      }
+    }
+  }
+
+  &.notification {
+    background: $base-blue;
+    color: #fff;
+  }
+
+  &.warning {
+    background: #c9ba9b;
+  }
+
+  &.error {
+    background: #e0b4b4;
+  }
+
+  .btn-close {
+    display: block;
+    height: rem(22px);
+    width: rem(22px);
+    position: absolute;
+    top: rem($pm-size-1 - 4);
+    right: rem($pm-size-05);
+    text-indent: rem(-9999px);
+
+    &::before,
+    &::after {
+      background-color: $base-text-color;
+      content: "";
+      height: rem(22px);
+      width: rem(3px);
+      position: absolute;
+      top: 0;
+      left: rem($pm-size-05);
+    }
+
+    &::before {
+      @include transform(rotate(45deg));
+    }
+
+    &::after {
+      @include transform(rotate(-45deg));
+    }
+  }
+}

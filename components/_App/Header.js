@@ -1,7 +1,8 @@
-import { Menu, Container, Image, Icon } from "semantic-ui-react";
+import { Menu, Image, Icon } from "semantic-ui-react";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Link from "next/link";
+import Container from "../ui/Container";
 import { handleLogout } from "../../utils/auth";
 
 Router.onRouteChangeStart = () => NProgress.start();
@@ -20,7 +21,7 @@ function Header({ user }) {
 
   return (
     <Menu id="menu" fluid inverted stackable>
-      <Container text>
+      <Container>
         <Link href="/">
           <Menu.Item header active={isActive("/")}>
             <Image
@@ -39,7 +40,7 @@ function Header({ user }) {
           </Menu.Item>
         </Link>
 
-        {isRootOrAdmin && (
+        {!isRootOrAdmin && (
           <Link href="/create">
             <Menu.Item header active={isActive("/create")}>
               <Icon name="add square" size="large" />

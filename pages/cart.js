@@ -1,5 +1,6 @@
 import React from "react";
-import { Segment } from "semantic-ui-react";
+//import { Segment } from "semantic-ui-react";
+import Segment from "../components/ui/Segment";
 import CartItemList from "../components/Cart/CartItemList";
 import CartSummary from "../components/Cart/CartSummary";
 import { parseCookies } from "nookies";

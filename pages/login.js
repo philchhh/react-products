@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Icon, Segment, Message } from "semantic-ui-react";
+import Messages from "../components/ui/Messages";
 import Link from "next/link";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
@@ -48,12 +49,11 @@ function Login() {
 
   return (
     <>
-      <Message
-        attached
-        icon="privacy"
+      <Messages
         header="Welcom Back!"
         content="Log in with email and password"
-        color="blue"
+        notification
+        rounded
       />
 
       <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
@@ -89,14 +89,14 @@ function Login() {
           />
         </Segment>
       </Form>
-      <Message attached="bottom" warning>
+      <Messages warning>
         <Icon name="help" />
         New user?{" "}
         <Link href="/signup">
           <a>Sign up here</a>
         </Link>{" "}
         instaed
-      </Message>
+      </Messages>
     </>
   );
 }
