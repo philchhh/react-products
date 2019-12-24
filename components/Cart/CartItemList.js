@@ -1,7 +1,8 @@
-import { Header, Segment, Button, Icon, Item } from "semantic-ui-react";
+import { Header, Segment, Icon, Item, Message } from "semantic-ui-react";
+import Button from "../ui/Button";
 import { useRouter } from "next/router";
 
-function CartItemList({ products, user, handleRemoveFromCart }) {
+function CartItemList({ products, user, handleRemoveFromCart, success }) {
   const router = useRouter();
 
   function mapCartProductsToItems(products) {
@@ -20,18 +21,27 @@ function CartItemList({ products, user, handleRemoveFromCart }) {
       fluid: "true",
       extra: (
         <Button
-          basic
-          icon="remove"
-          floated="right"
+          label="Remove"
           onClick={() => handleRemoveFromCart(p.product._id)}
         />
       )
     }));
   }
 
+  if (success) {
+    return (
+      <Message
+        success
+        header="Success!"
+        content="Your order and payment has been accepted"
+        icon="star outline"
+      />
+    );
+  }
+
   if (!products || products.length === 0) {
     return (
-      <Segment secondary color="teal" inverted textAlign="center" placeholder>
+      <Segment secondary color="teal" inverted placeholder>
         <Header icon>
           <Icon name="shopping basket" />
           No products in your cart! Add some yo!

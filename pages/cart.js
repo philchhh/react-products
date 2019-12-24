@@ -6,10 +6,14 @@ import CartSummary from "../components/Cart/CartSummary";
 import { parseCookies } from "nookies";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
+import catchErrors from "../utils/catchErrors";
 import cookie from "js-cookie";
 
 function Cart({ user, products }) {
   const [cartProducts, setCartProducts] = React.useState(products);
+  const [success, setSuccess] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   async function handleRemoveFromCart(productId) {
     const url = `${baseUrl}/api/cart`;
@@ -23,14 +27,37 @@ function Cart({ user, products }) {
     console.log(response.data);
   }
 
+  const handelCheckout = async paymentData => {
+    try {
+      setLoading(true);
+      const url = `${baseUrl}/api/checkout`;
+      const token = cookie.get("token");
+      const payload = { paymentData };
+      const headers = { headers: { Authorization: token } };
+      await axios.post(url, payload, headers);
+      setSuccess(true);
+    } catch (error) {
+      setError(true);
+      catchErrors(error, window.alert);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <Segment>
+    <Segment loading={loading}>
+      {error && <p>Damn! I think there was an error.</p>}
       <CartItemList
         handleRemoveFromCart={handleRemoveFromCart}
         user={user}
         products={cartProducts}
+        success={success}
       />
-      <CartSummary products={cartProducts} />
+      <CartSummary
+        products={cartProducts}
+        handelCheckout={handelCheckout}
+        success={success}
+      />
     </Segment>
   );
 }
