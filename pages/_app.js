@@ -44,8 +44,8 @@ class MyApp extends App {
       } catch (error) {
         console.error("Error getting current user", error);
 
-        destroyCookie(ctx, "token");
         // Throw out invalid token
+        destroyCookie(ctx, "token");
 
         // Redirect user to login page
         redirectUser(ctx, "/login");

@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Button, Modal } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ function ProductAttributes({ description, _id, user }) {
 
   return (
     <>
-      <Header as="h3">About this product</Header>
+      <h2>About this product</h2>
       <p>{description}</p>
 
       {isRootOrAdmin && (

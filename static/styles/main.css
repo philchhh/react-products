@@ -1212,86 +1212,55 @@ input[placeholder],
   position: fixed; }
 
 .component-menu {
-  background: #65909a;
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  left: -110%;
-  z-index: 999;
-  box-shadow: 0 0 0.3125rem 0.3125rem rgba(102, 102, 102, 0.5);
-  -moz-transition: all 0.25s ease-in-out;
-  -webkit-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  background: #002f9c; }
   .component-menu.expanded {
     left: 0; }
-  @media only screen and (min-width: 18.75rem) {
-    .component-menu {
-      width: 85%; } }
-  @media only screen and (min-width: 40rem) {
-    .component-menu {
-      width: 65%; } }
   @media only screen and (min-width: 48rem) {
     .component-menu {
-      display: none; } }
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .component-menu {
-      display: block;
-      width: 85%; } }
-  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-    .component-menu {
-      display: block;
-      width: 85%; } }
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .component-menu {
-      display: block;
-      width: 85%; } }
-  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-    .component-menu {
-      display: block;
-      width: 85%; } }
+      background: transparent; } }
   .component-menu ul {
-    margin-top: 3.125rem; }
-    .component-menu ul > li {
-      border-bottom: 1px solid #fff; }
-      .component-menu ul > li:first-child {
-        border-top: 1px solid #fff; }
-      .component-menu ul > li > button {
-        background: transparent;
-        display: block;
-        font-size: 1.125rem;
-        color: #fff;
-        text-align: left;
-        width: 100%;
-        padding: 1.25rem 1.875rem;
-        outline: 0 none;
-        background: #666;
-        background: linear-gradient(to bottom, #666, transparent); }
-        .component-menu ul > li > button.play-for-real {
-          text-align: center;
-          background: #64be02;
-          background: linear-gradient(to bottom, #64be02, transparent); }
-        .component-menu ul > li > button svg {
-          max-width: 1.125rem;
-          height: auto;
-          position: relative;
-          top: 0.125rem;
-          margin-right: 0.75rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin: 0; }
+    .component-menu ul > li > a,
+    .component-menu ul > li > button {
+      background: transparent;
+      display: block;
+      font-size: 1.125rem;
+      color: #fff;
+      text-align: left;
+      padding: 1.25rem 1.875rem;
+      outline: 0 none; }
+      .component-menu ul > li > a svg,
+      .component-menu ul > li > button svg {
+        max-width: 1.125rem;
+        height: auto;
+        position: relative;
+        top: 0.125rem;
+        margin-right: 0.75rem;
+        fill: #fff; }
+        .component-menu ul > li > a svg.svg-bullhorn-icon,
+        .component-menu ul > li > button svg.svg-bullhorn-icon {
+          max-width: 1.25rem;
+          top: 0.1875rem; }
+        .component-menu ul > li > a svg .cls,
+        .component-menu ul > li > button svg .cls {
+          fill: none;
+          stroke: #fff;
+          stroke-width: 0.3125rem; }
+      .component-menu ul > li > a:hover, .component-menu ul > li > a:focus,
+      .component-menu ul > li > button:hover,
+      .component-menu ul > li > button:focus {
+        background: rgba(0, 47, 156, 0.5); }
+        .component-menu ul > li > a:hover svg, .component-menu ul > li > a:focus svg,
+        .component-menu ul > li > button:hover svg,
+        .component-menu ul > li > button:focus svg {
           fill: #fff; }
-          .component-menu ul > li > button svg.svg-bullhorn-icon {
-            max-width: 1.25rem;
-            top: 0.1875rem; }
-          .component-menu ul > li > button svg .cls {
-            fill: none;
-            stroke: #fff;
-            stroke-width: 0.3125rem; }
-        .component-menu ul > li > button:hover, .component-menu ul > li > button:focus {
-          background: transparent;
-          background: linear-gradient(to bottom, transparent, #666); }
-          .component-menu ul > li > button:hover svg, .component-menu ul > li > button:focus svg {
-            fill: #fff; }
+    .component-menu ul > li.active > a {
+      background: rgba(0, 47, 156, 0.5); }
   .component-menu .btn-close {
     position: absolute;
     top: 0.75rem;
@@ -3005,33 +2974,28 @@ input[placeholder],
   @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
     .main-header.mobile-hidden {
       display: none; } }
-  .main-header::before, .main-header::after {
-    content: "";
-    display: table; }
-  .main-header::after {
-    clear: both; }
-  .main-header > h1 {
+  .main-header .logo-main {
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
     line-height: 44px;
     position: relative;
-    margin: 0;
+    margin: 0.75rem;
     padding: 0 0.75rem; }
     @media only screen and (min-width: 48rem) {
-      .main-header > h1 {
+      .main-header .logo-main {
         float: left; } }
     @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .main-header > h1 {
+      .main-header .logo-main {
         float: none; } }
     @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-      .main-header > h1 {
+      .main-header .logo-main {
         float: none; } }
     @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .main-header > h1 {
+      .main-header .logo-main {
         float: none; } }
     @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-      .main-header > h1 {
+      .main-header .logo-main {
         float: none; } }
   .main-header:before, .main-header:after {
     content: "";

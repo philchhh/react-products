@@ -1,63 +1,56 @@
 // =Lobby Menu
 // ------------------------------------------------------
 .component-menu {
-  background: #65909a;
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  left: -110%;
-  z-index: 999;
-  box-shadow: 0 0 rem(5px) rem(5px) rgba($base-dark-gray, 0.5);
-  @include transition(all, 0.25s, ease-in-out);
+  background: $base-blue;
+  // height: 100%;
+  // width: 100%;
+  // overflow-y: auto;
+  // position: fixed;
+  // top: 0;
+  // left: -110%;
+  // z-index: 999;
+  // box-shadow: 0 0 rem(5px) rem(5px) rgba($base-dark-gray, 0.5);
+  // @include transition(all, 0.25s, ease-in-out);
 
   &.expanded {
     left: 0;
   }
 
   @include responds-to(xs-screen) {
-    width: 85%;
   }
 
   @include responds-to(handheld) {
-    width: 65%;
   }
 
   @include responds-to(small-screen) {
-    display: none;
+    background: transparent;
   }
 
   @include responds-to(iphonex) {
-    display: block;
-    width: 85%;
   }
 
   ul {
-    margin-top: rem($pm-size-5);
+    @include flexbox();
+    margin: 0;
 
     > li {
-      border-bottom: 1px solid $base-white;
+      //border-bottom: 1px solid $base-white;
 
       &:first-child {
-        border-top: 1px solid $base-white;
+        //border-top: 1px solid $base-white;
       }
 
+      > a,
       > button {
         background: transparent;
         display: block;
         font-size: rem(18px);
-        color: $base-white;
+        color: #fff;
         text-align: left;
-        width: 100%;
+        // width: 100%;
         padding: rem($pm-size-2) rem($pm-size-3);
         outline: 0 none;
-        @include gradient($base-dark-gray, transparent, vertical);
-
-        &.play-for-real {
-          text-align: center;
-          @include gradient($base-green, transparent, vertical);
-        }
+        //@include gradient($base-dark-gray, transparent, vertical);
 
         svg {
           max-width: rem(18px);
@@ -81,10 +74,18 @@
 
         &:hover,
         &:focus {
-          @include gradient(transparent, $base-dark-gray, vertical);
+          background: rgba($base-blue, 0.5);
+          // @include gradient(transparent, $base-dark-gray, vertical);
+
           svg {
             fill: #fff;
           }
+        }
+      }
+
+      &.active {
+        > a {
+          background: rgba($base-blue, 0.5);
         }
       }
     }

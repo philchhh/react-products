@@ -11,11 +11,7 @@ function ProductList({ products }) {
     }));
   }
 
-  return (
-    <>
-      <Cards items={mapProductsToItems(products)} />
-    </>
-  );
+  return <Cards items={mapProductsToItems(products)} />;
 }
 
 export default ProductList;

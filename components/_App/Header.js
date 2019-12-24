@@ -1,8 +1,10 @@
-import { Image, Icon, Menu } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Link from "next/link";
 import Container from "../ui/Container";
+import Menu from "../ui/Menu";
+
 //import Menu from "../ui/Menu";
 import { handleLogout } from "../../utils/auth";
 
@@ -21,63 +23,57 @@ function Header({ user }) {
   }
 
   return (
-    <Menu inverted stackable>
+    <div className="main-header">
       <Container>
         <Link href="/">
-          <a>
+          <a className="logo-main">
             <Image size="mini" src="/static/logo.svg" />
           </a>
         </Link>
 
-        <Link href="/cart">
+        <Menu stackable>
           <Menu.Item active={isActive("/cart")}>
-            <Icon name="cart" size="large" />
-            Cart
+            <Link href="/cart">
+              <a>Cart</a>
+            </Link>
           </Menu.Item>
-        </Link>
 
-        {isRootOrAdmin && (
-          <Link href="/create">
+          {isRootOrAdmin && (
             <Menu.Item active={isActive("/create")}>
-              <Icon name="add square" size="large" />
-              Create
+              <Link href="/create">
+                <a>Create</a>
+              </Link>
             </Menu.Item>
-          </Link>
-        )}
+          )}
 
-        {user ? (
-          <>
-            <Link href="/account">
+          {user ? (
+            <>
               <Menu.Item active={isActive("/account")}>
-                <Icon name="user" size="large" />
-                Account
+                <Link href="/account">
+                  <a>Account</a>
+                </Link>
               </Menu.Item>
-            </Link>
 
-            <Menu.Item onClick={handleLogout}>
-              <Icon name="sign out" size="large" />
-              Logout
-            </Menu.Item>
-          </>
-        ) : (
-          <>
-            <Link href="/login">
+              <Menu.Button onClick={handleLogout}>Logout</Menu.Button>
+            </>
+          ) : (
+            <>
               <Menu.Item active={isActive("/login")}>
-                <Icon name="sign in" size="large" />
-                Login
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
               </Menu.Item>
-            </Link>
 
-            <Link href="/signup">
               <Menu.Item active={isActive("/signup")}>
-                <Icon name="signup" size="large" />
-                Signup
+                <Link href="/signup">
+                  <a>Signup</a>
+                </Link>
               </Menu.Item>
-            </Link>
-          </>
-        )}
+            </>
+          )}
+        </Menu>
       </Container>
-    </Menu>
+    </div>
   );
 }
 
