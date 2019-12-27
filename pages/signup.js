@@ -47,7 +47,7 @@ function Signup() {
   };
 
   return (
-    <div class="content-main">
+    <div className="content-main">
       <Message
         attached
         icon="settings"
