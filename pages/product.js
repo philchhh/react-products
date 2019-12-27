@@ -5,10 +5,10 @@ import baseUrl from "../utils/baseUrl";
 
 function Product({ product, user }) {
   return (
-    <>
+    <div className="content-main">
       <ProductSummary user={user} {...product} />
       <ProductAttributes user={user} {...product} />
-    </>
+    </div>
   );
 }
 

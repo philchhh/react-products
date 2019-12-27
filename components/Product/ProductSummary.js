@@ -8,14 +8,15 @@ function ProductSummary({ user, name, mediaUrl, _id, price, sku }) {
         <Item.Image size="medium" src={mediaUrl} />
 
         <Item.Content>
-          <Item.Header>{name}</Item.Header>
+          <h3>{name}</h3>
           <Item.Description>
-            <p>${price}</p>
+            <p>Price: ${price}</p>
             <Label>SKU: {sku}</Label>
           </Item.Description>
           <Item.Extra>
             <AddProductToCart user={user} productId={_id} />
           </Item.Extra>
+          asdf
         </Item.Content>
       </Item>
     </Item.Group>

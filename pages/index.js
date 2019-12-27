@@ -6,10 +6,10 @@ import baseUrl from "../utils/baseUrl";
 
 function Home({ products, totalPages }) {
   return (
-    <>
+    <div className="content-main">
       <ProductList products={products} />
       <ProductPagination totalPages={totalPages} />
-    </>
+    </div>
   );
 }
 

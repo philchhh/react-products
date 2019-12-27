@@ -55,10 +55,7 @@ function AccountOrders({ orders }) {
 
   return (
     <>
-      <Header>
-        <Icon name="folder open" />
-        Order History
-      </Header>
+      <h2>Order History</h2>
 
       {orders.length === 0 ? (
         <Segment inverted tertiary>

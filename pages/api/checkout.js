@@ -11,7 +11,6 @@ export default async (req, res) => {
   const { paymentData } = req.body;
 
   try {
-    console.log(paymentData);
     // Verify and get user Id from token
     const { userId } = jwt.verify(
       req.headers.authorization,

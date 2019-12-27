@@ -37,11 +37,9 @@ function Signup() {
       setError("");
       const url = `${baseUrl}/api/signup`;
       const payload = { ...user };
-      console.log(payload, { ...user });
       const response = await axios.post(url, payload);
       handelLogin(response.data);
     } catch (error) {
-      console.error("I think this is the error");
       catchErrors(error, setError);
     } finally {
       setLoading(false);
@@ -49,7 +47,7 @@ function Signup() {
   };
 
   return (
-    <>
+    <div class="content-main">
       <Message
         attached
         icon="settings"
@@ -108,7 +106,7 @@ function Signup() {
         </Link>{" "}
         instaed
       </Message>
-    </>
+    </div>
   );
 }
 

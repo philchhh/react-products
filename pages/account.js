@@ -6,10 +6,8 @@ import axios from "axios";
 import Container from "../components/ui/Container";
 
 function Account({ user, orders }) {
-  console.log(orders);
-
   return (
-    <Container>
+    <Container primary>
       <AccountHeader {...user} />
       <AccountOrders orders={orders} />
     </Container>

@@ -50,7 +50,6 @@ async function handlePostRequest(req, res) {
 
 async function handleDeleteRequest(req, res) {
   const { _id } = req.query;
-  console.log({ _id });
   await Product.findOneAndDelete({ _id });
   res.status(204).json({});
 }

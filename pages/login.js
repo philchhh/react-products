@@ -40,7 +40,6 @@ function Login() {
       const response = await axios.post(url, payload);
       handelLogin(response.data);
     } catch (error) {
-      console.log("Errrrors");
       catchErrors(error, setError);
     } finally {
       setLoading(false);
@@ -48,7 +47,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="content-main">
       <Messages
         header="Welcom Back!"
         content="Log in with email and password"
@@ -97,7 +96,7 @@ function Login() {
         </Link>{" "}
         instaed
       </Messages>
-    </>
+    </div>
   );
 }
 

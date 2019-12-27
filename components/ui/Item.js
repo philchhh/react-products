@@ -1,10 +1,10 @@
 import { classnames } from "../../utils/helpers";
 
-function Segment({ primary, items, children }) {
+function Item({ children }) {
   return (
     <div
       className={classnames({
-        segment: true
+        item: true
       })}
     >
       {children}
@@ -12,4 +12,4 @@ function Segment({ primary, items, children }) {
   );
 }
 
-export default Segment;
+export default Item;

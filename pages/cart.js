@@ -23,7 +23,6 @@ function Cart({ user, products }) {
     };
     const response = await axios.delete(url, payload);
     setCartProducts(response.data);
-    console.log(response.data);
   }
 
   const handelCheckout = async paymentData => {
@@ -44,20 +43,22 @@ function Cart({ user, products }) {
   };
 
   return (
-    <Segment loading={loading}>
-      {error && <p>Damn! I think there was an error.</p>}
-      <CartItemList
-        handleRemoveFromCart={handleRemoveFromCart}
-        user={user}
-        products={cartProducts}
-        success={success}
-      />
-      <CartSummary
-        products={cartProducts}
-        handelCheckout={handelCheckout}
-        success={success}
-      />
-    </Segment>
+    <div className="content-main">
+      <Segment primary loading={loading}>
+        {error && <p>Damn! I think there was an error.</p>}
+        <CartItemList
+          handleRemoveFromCart={handleRemoveFromCart}
+          user={user}
+          products={cartProducts}
+          success={success}
+        />
+        <CartSummary
+          products={cartProducts}
+          handelCheckout={handelCheckout}
+          success={success}
+        />
+      </Segment>
+    </div>
   );
 }
 

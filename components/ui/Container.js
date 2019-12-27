@@ -1,6 +1,16 @@
-function Container({ center, children }) {
+import { classnames } from "../../utils/helpers";
+
+function Container({ primary, center, children }) {
   return (
-    <div className={`container ${center ? "ta_center" : ""}`}>{children}</div>
+    <div
+      className={classnames({
+        container: true,
+        "content-main": primary,
+        ta_center: center
+      })}
+    >
+      {children}
+    </div>
   );
 }
 

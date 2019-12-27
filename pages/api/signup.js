@@ -48,7 +48,6 @@ export default async (req, res) => {
     // Send back token
     res.status(201).json(token);
   } catch (error) {
-    console.error("ERRORS!!!", error);
     res.status(500).send(`Error signing up. Please try again later.`);
   }
 };

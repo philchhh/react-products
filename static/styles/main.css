@@ -1315,6 +1315,7 @@ input[placeholder],
 
 .segment {
   background: transparent;
+  color: #191919;
   position: relative;
   margin: 0.75rem 0;
   padding: 0.75rem;
@@ -2890,25 +2891,6 @@ input[placeholder],
 .main {
   position: relative;
   height: calc(100% - 154px); }
-  .main.uge-fullscreen, .main.paytable-visible {
-    height: 100%;
-    padding: 0;
-    margin: 0; }
-    @media only screen and (min-width: 48rem) {
-      .main.uge-fullscreen, .main.paytable-visible {
-        height: calc(100% - 44px); } }
-    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .main.uge-fullscreen, .main.paytable-visible {
-        height: 100%; } }
-    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-      .main.uge-fullscreen, .main.paytable-visible {
-        height: 100%; } }
-    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .main.uge-fullscreen, .main.paytable-visible {
-        height: 100%; } }
-    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-      .main.uge-fullscreen, .main.paytable-visible {
-        height: 100%; } }
   @media only screen and (min-width: 48rem) {
     .main {
       height: calc(100% - 44px);
@@ -2932,6 +2914,9 @@ input[placeholder],
     .container {
       margin-left: auto;
       margin-right: auto; } }
+
+.content-main {
+  padding: 1.25rem 0 1.25rem 0; }
 
 .main-header {
   background: #333;
