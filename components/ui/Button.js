@@ -1,6 +1,6 @@
-function Button({ label, onClick, inline }) {
+function Button({ label, onClick, inline, disabled }) {
   return (
-    <button className="common-btn" onClick={onClick}>
+    <button className="common-btn" onClick={onClick} disabled={disabled}>
       {label}
     </button>
   );

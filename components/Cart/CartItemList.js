@@ -1,5 +1,6 @@
-import { Header, Segment, Icon, Item, Message } from "semantic-ui-react";
+import { Header, Icon, Item, Message } from "semantic-ui-react";
 import Button from "../ui/Button";
+import Segment from "../ui/Segment";
 import { useRouter } from "next/router";
 
 function CartItemList({ products, user, handleRemoveFromCart, success }) {
@@ -48,13 +49,12 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
         </Header>
         <div>
           {user ? (
-            <Button onClick={() => router.push("/")} color="orange">
-              View Products
-            </Button>
+            <Button label="View Products" onClick={() => router.push("/")} />
           ) : (
-            <Button onClick={() => router.push("/login")} color="blue">
-              Login to add products
-            </Button>
+            <Button
+              label="Login to add products"
+              onClick={() => router.push("/login")}
+            />
           )}
         </div>
       </Segment>
