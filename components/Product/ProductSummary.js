@@ -16,7 +16,6 @@ function ProductSummary({ user, name, mediaUrl, _id, price, sku }) {
           <Item.Extra>
             <AddProductToCart user={user} productId={_id} />
           </Item.Extra>
-          asdf
         </Item.Content>
       </Item>
     </Item.Group>
