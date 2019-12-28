@@ -1,4 +1,3 @@
-import { Image } from "semantic-ui-react";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Link from "next/link";
@@ -27,7 +26,7 @@ function Header({ user }) {
       <Container>
         <Link href="/">
           <a className="logo-main">
-            <Image size="mini" src="/static/logo.svg" />
+            <img src="/static/logo.svg" width="40" alt="" />
           </a>
         </Link>
 

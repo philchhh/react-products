@@ -1,13 +1,6 @@
-import {
-  Form,
-  Input,
-  TextArea,
-  Button,
-  Image,
-  Message,
-  Icon
-} from "semantic-ui-react";
+import { Form, Input, TextArea, Button, Message } from "semantic-ui-react";
 
+import Image from "../components/ui/Image";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import catchErrors from "../utils/catchErrors";
@@ -124,7 +117,7 @@ function CreateProduct() {
         </Form.Group>
 
         {mediaPreview && (
-          <Image src={mediaPreview} rounded centered size="small" />
+          <Image src={mediaPreview} width="160" centered size="small" />
         )}
 
         <Form.Field
