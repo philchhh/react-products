@@ -1,10 +1,12 @@
 import { classnames } from "../../utils/helpers";
 
-function Segment({ primary, items, children }) {
+function Segment({ primary, items, children, loading }) {
   return (
     <div
       className={classnames({
-        segment: true
+        segment: true,
+        primary: primary,
+        loading: loading
       })}
     >
       {children}

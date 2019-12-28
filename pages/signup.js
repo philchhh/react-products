@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Form, Icon, Segment } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
+import Segment from "../components/ui/Segment";
 import Message from "../components/ui/Messages";
 import Link from "next/link";
 import catchErrors from "../utils/catchErrors";

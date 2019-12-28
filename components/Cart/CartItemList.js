@@ -11,12 +11,11 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
     return products.map(p => ({
       childKey: p.product._id,
       header: (
-        <Item.Header
-          as="a"
-          onClick={() => router.push(`/product?_id=${p.product._id}`)}
-        >
-          {p.product.name}
-        </Item.Header>
+        <h2>
+          <a onClick={() => router.push(`/product?_id=${p.product._id}`)}>
+            {p.product.name}
+          </a>
+        </h2>
       ),
       image: p.product.mediaUrl,
       meta: `${p.quantity} x $${p.product.price}`,
