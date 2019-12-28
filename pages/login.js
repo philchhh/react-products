@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Form, Icon, Segment, Message } from "semantic-ui-react";
-import Messages from "../components/ui/Messages";
+import { Button, Form, Icon, Segment } from "semantic-ui-react";
+import Message from "../components/ui/Messages";
 import Link from "next/link";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
@@ -48,7 +48,7 @@ function Login() {
 
   return (
     <div className="content-main">
-      <Messages
+      <Message
         header="Welcom Back!"
         content="Log in with email and password"
         notification
@@ -88,14 +88,13 @@ function Login() {
           />
         </Segment>
       </Form>
-      <Messages warning>
-        <Icon name="help" />
+      <Message warning>
         New user?{" "}
         <Link href="/signup">
           <a>Sign up here</a>
         </Link>{" "}
         instaed
-      </Messages>
+      </Message>
     </div>
   );
 }

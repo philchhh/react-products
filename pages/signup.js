@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Form, Icon, Segment, Message } from "semantic-ui-react";
+import { Button, Form, Icon, Segment } from "semantic-ui-react";
+import Message from "../components/ui/Messages";
 import Link from "next/link";
 import catchErrors from "../utils/catchErrors";
 import baseUrl from "../utils/baseUrl";
@@ -98,8 +99,7 @@ function Signup() {
           />
         </Segment>
       </Form>
-      <Message attached="bottom" warning>
-        <Icon name="help" />
+      <Message warning>
         Existing user?{" "}
         <Link href="/login">
           <a>Log in here</a>

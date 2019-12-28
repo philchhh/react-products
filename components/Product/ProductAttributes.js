@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Modal } from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
+import Button from "../ui/Button";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
 import { useRouter } from "next/router";
@@ -26,26 +27,15 @@ function ProductAttributes({ description, _id, user }) {
 
       {isRootOrAdmin && (
         <>
-          <Button
-            onClick={() => setModal(true)}
-            icon="trash alternate outline"
-            color="red"
-            content="Delete Product"
-          />
+          <Button onClick={() => setModal(true)} label="Delete Product" />
           <Modal open={modal} dimmer="blurring">
             <Modal.Header>Confirm Delete</Modal.Header>
             <Modal.Content>
               <p>Are you sure you want to delete this product?</p>
             </Modal.Content>
             <Modal.Actions>
-              <Button onClick={() => setModal(false)} content="Cancel" />
-              <Button
-                onClick={handleDelete}
-                negative
-                icon="trash"
-                content="Delete"
-                labelPosition="right"
-              />
+              <Button onClick={() => setModal(false)} label="Cancel" />
+              <Button onClick={handleDelete} label="Delete" />
             </Modal.Actions>
           </Modal>
         </>

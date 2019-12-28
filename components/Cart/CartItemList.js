@@ -1,6 +1,7 @@
-import { Header, Icon, Item, Message } from "semantic-ui-react";
+import { Header, Icon, Item } from "semantic-ui-react";
 import Button from "../ui/Button";
 import Segment from "../ui/Segment";
+import Message from "../ui/Messages";
 import { useRouter } from "next/router";
 
 function CartItemList({ products, user, handleRemoveFromCart, success }) {
@@ -35,7 +36,6 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
         success
         header="Success!"
         content="Your order and payment has been accepted"
-        icon="star outline"
       />
     );
   }

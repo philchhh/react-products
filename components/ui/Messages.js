@@ -15,7 +15,8 @@ function Messages({
         message: true,
         notification: notification && true,
         rounded: rounded && true,
-        warning: warning && true
+        warning: warning && true,
+        error: error && true
       })}
     >
       <div className="message-header">

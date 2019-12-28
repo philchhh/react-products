@@ -5,7 +5,6 @@ import {
   Button,
   Image,
   Message,
-  Header,
   Icon
 } from "semantic-ui-react";
 
@@ -74,10 +73,8 @@ function CreateProduct() {
 
   return (
     <>
-      <Header as="h2" block>
-        <Icon name="add" color="orange" />
-        Create New Product
-      </Header>
+      <h2>Create New Product</h2>
+
       <Form
         loading={loading}
         success={success}
