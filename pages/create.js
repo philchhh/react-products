@@ -65,7 +65,7 @@ function CreateProduct() {
   };
 
   return (
-    <>
+    <div className="content-main">
       <h2>Create New Product</h2>
 
       <Form
@@ -137,7 +137,7 @@ function CreateProduct() {
           type="submit"
         />
       </Form>
-    </>
+    </div>
   );
 }
 
