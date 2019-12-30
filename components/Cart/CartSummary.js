@@ -32,7 +32,11 @@ function CartSummary({ products, handelCheckout, success }) {
           token={handelCheckout}
           triggerEvent="onClick"
         >
-          <Button disabled={isCartEmpty || success} label="Checkout" />
+          <Button
+            disabled={isCartEmpty || success}
+            floatRight
+            label="Checkout"
+          />
         </StripeCheckout>
       </Segment>
     </>

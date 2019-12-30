@@ -1,13 +1,6 @@
-import {
-  Header,
-  Accordion,
-  Button,
-  List,
-  Image,
-  Icon,
-  Segment,
-  Label
-} from "semantic-ui-react";
+import { Header, Accordion, List, Image, Icon, Label } from "semantic-ui-react";
+import Segment from "../ui/Segment";
+import Button from "../ui/Button";
 import { useRouter } from "next/router";
 
 function AccountOrders({ orders }) {
@@ -59,7 +52,7 @@ function AccountOrders({ orders }) {
 
       {orders.length === 0 ? (
         <Segment inverted tertiary>
-          <Header icon>
+          <Header>
             <Icon name="copy outline" />
             No past orders.
           </Header>
@@ -68,9 +61,8 @@ function AccountOrders({ orders }) {
               onClick={() => {
                 router.push("/");
               }}
-            >
-              View Products
-            </Button>
+              label="View Products"
+            />
           </div>
         </Segment>
       ) : (

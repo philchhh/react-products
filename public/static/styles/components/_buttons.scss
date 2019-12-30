@@ -1,8 +1,7 @@
 // =Buttons
 // ------------------------------------------------------
-.btn,
 .common-btn {
-  background: $base-black;
+  background: $base-blue;
   display: inline-block;
   font-size: rem(14px);
   font-weight: bold;
@@ -10,7 +9,8 @@
   width: auto;
   vertical-align: top;
   margin: rem($pm-size-05) 0;
-  padding: rem($pm-size-05 + 2) rem($pm-size-3) rem($pm-size-05 + 1) rem($pm-size-3);
+  padding: rem($pm-size-05 + 2) rem($pm-size-3) rem($pm-size-05 + 1)
+    rem($pm-size-3);
   border: 0;
   border-radius: rem(3px);
   outline: 0 none;
@@ -34,6 +34,7 @@
   &.disabled {
     opacity: 0.65;
     cursor: default;
+    pointer-events: none;
   }
 
   &.btn-prev {
