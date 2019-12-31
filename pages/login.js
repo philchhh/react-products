@@ -56,10 +56,10 @@ function Login() {
         rounded
       />
 
-      <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
+      <Form error={Boolean(error)} onSubmit={handleSubmit}>
         <Message error header="Oops!" content={error} />
 
-        <Segment>
+        <Segment loading={loading}>
           <Form.Input
             fluid
             type="email"

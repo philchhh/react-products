@@ -9,7 +9,8 @@
     width: 100%;
     text-align: left;
     overflow: hidden;
-    padding: rem($pm-size-05 + 2) rem($pm-size-2) rem($pm-size-05 + 2) rem($pm-size-05);
+    padding: rem($pm-size-05 + 2) rem($pm-size-2) rem($pm-size-05 + 2)
+      rem($pm-size-05);
     text-shadow: none;
 
     &:focus {

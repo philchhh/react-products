@@ -1,30 +1,25 @@
 // Loader
 // ----------------------------------------------------------------------
 .loading {
-  height: rem(64px);
-  width: rem(64px);
+  height: rem(50px);
+  width: rem(50px);
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 999;
   @include transform(translate(-50%, -50%));
 }
 
-.loader,
-.loader::after {
-  width: rem(50px);
-  height: rem(50px);
-  border-radius: 50%;
-}
-
 .loader {
+  height: rem(50px);
+  width: rem(50px);
   position: relative;
-  margin: 0 auto;
-  border-left: 0.4rem solid #fff;
-  border-top: 0.4rem solid rgba(#fff, 0.3);
-  border-right: 0.4rem solid rgba(#fff, 0.3);
-  border-bottom: 0.4rem solid rgba(#fff, 0.3);
+  border-top: rem(6px) solid rgba($base-blue, 0.3);
+  border-right: rem(6px) solid rgba($base-blue, 0.3);
+  border-bottom: rem(6px) solid rgba($base-blue, 0.3);
   @include transform(translateZ(0));
-  box-shadow: 0, 0, 2px, 2px, rgba($base-gray, 0.75);
+  border-left: rem(6px) solid $base-blue;
+  border-radius: 50%;
   -webkit-animation: load 1.5s infinite linear;
   animation: load 1.5s infinite linear;
 }
