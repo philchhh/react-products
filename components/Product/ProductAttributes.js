@@ -18,7 +18,10 @@ function ProductAttributes({ description, _id, user }) {
     const payload = { params: { _id } };
     await axios.delete(url, payload);
     router.push("/");
+    console.error(router);
   }
+
+  console.log(modal);
 
   return (
     <>
