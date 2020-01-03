@@ -59,6 +59,7 @@ async function handleDeleteRequest(req, res) {
       { "products.product": _id },
       { $pull: { products: { product: _id } } }
     );
+    res.status(204).json({});
   } catch (error) {
     console.log(error);
     res.status(500).send("Error deleting product");
