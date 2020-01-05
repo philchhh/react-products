@@ -1,13 +1,14 @@
 import { classnames } from "../../utils/helpers";
 
-function Label({ children }) {
+function Label({ content, children }) {
   return (
     <span
       className={classnames({
         "item-label": true
       })}
     >
-      {children}
+      {children && children}
+      {content && content}
     </span>
   );
 }

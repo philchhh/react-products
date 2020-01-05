@@ -1,19 +1,39 @@
 import { classnames } from "../../utils/helpers";
 
-function Button({ label, onClick, inline, floatRight, center, disabled }) {
+function Button({
+  commonBtn,
+  secondary,
+  className,
+  label,
+  icon,
+  type,
+  onClick,
+  active,
+  inline,
+  floatRight,
+  centered,
+  disabled,
+  children
+}) {
   return (
     <button
       className={classnames({
-        "common-btn": true,
+        [className]: className,
+        "common-btn": commonBtn,
+        secondary: secondary,
+        ["icon-" + icon]: icon,
         inline: inline,
-        ta_center: center,
+        ta_center: centered,
         disabled: disabled,
-        fl_right: floatRight
+        fl_right: floatRight,
+        active: active
       })}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
-      {label}
+      {label && label}
+      {children && children}
     </button>
   );
 }

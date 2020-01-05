@@ -1,50 +1,43 @@
-import { Header, Accordion, List, Image, Icon, Label } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
 import Segment from "../ui/Segment";
 import Button from "../ui/Button";
+import Image from "../ui/Image";
+import Label from "../ui/Label";
 import { useRouter } from "next/router";
 import formatDate from "../../utils/formatDate";
 
 function AccountOrders({ orders }) {
   const router = useRouter();
 
-  function mapOrdersToPanels(orders) {
-    return orders.map(order => ({
-      key: order._id,
-      title: {
-        content: <Label color="blue" content={formatDate(order.createdAt)} />
-      },
-      content: {
-        content: (
+  function MapOrdersToPanels() {
+    return orders.map(order => (
+      <Segment>
+        <Label content={formatDate(order.createdAt)} />
+        <List.Header as="h3">
+          Total: ${order.total}
+          <Label>{order.email}</Label>
+        </List.Header>
+        <List>
           <>
-            <List.Header as="h3">
-              Total: ${order.total}
-              <Label content={order.email} icon="mail" basic horizontal />
-            </List.Header>
-            <List>
-              <>
-                {order.products.map((p, i) => (
-                  <List.Item key={i}>
-                    <Image avatar src={p.product.mediaUrl} />
-                    <List.Content>
-                      <List.Header>{p.product.name}</List.Header>
-                      <List.Description>
-                        <p>Quantity: {p.quantity}</p>
-                        <p>Price: ${p.product.price}</p>
-                      </List.Description>
-                    </List.Content>
-                    <List.Content floated="right">
-                      <Label tag color="red" size="tiny">
-                        {p.product.sku}
-                      </Label>
-                    </List.Content>
-                  </List.Item>
-                ))}
-              </>
-            </List>
+            {order.products.map((p, i) => (
+              <List.Item key={i}>
+                <Image size="thumb" src={p.product.mediaUrl} />
+                <List.Content>
+                  <List.Header>{p.product.name}</List.Header>
+                  <List.Description>
+                    <p>Quantity: {p.quantity}</p>
+                    <p>Price: ${p.product.price}</p>
+                  </List.Description>
+                </List.Content>
+                <List.Content>
+                  <Label>{p.product.sku}</Label>
+                </List.Content>
+              </List.Item>
+            ))}
           </>
-        )
-      }
-    }));
+        </List>
+      </Segment>
+    ));
   }
 
   return (
@@ -53,10 +46,7 @@ function AccountOrders({ orders }) {
 
       {orders.length === 0 ? (
         <Segment inverted tertiary>
-          <Header>
-            <Icon name="copy outline" />
-            No past orders.
-          </Header>
+          <h3>No past orders.</h3>
           <div>
             <Button
               onClick={() => {
@@ -67,12 +57,7 @@ function AccountOrders({ orders }) {
           </div>
         </Segment>
       ) : (
-        <Accordion
-          fluid
-          styled
-          exclusive={false}
-          panels={mapOrdersToPanels(orders)}
-        />
+        <MapOrdersToPanels />
       )}
     </>
   );

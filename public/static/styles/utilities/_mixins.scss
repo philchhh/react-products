@@ -183,10 +183,24 @@
   column-gap: $gap;
 }
 
-// Double Borders
-@mixin double-borders($colorOne: #3c3c3c, $colorTwo: #999999, $radius: 0) {
-  border: 1px solid $colorOne;
-  box-shadow: 0 0 0 1px $colorTwo;
+// Scrollbars
+@mixin scroll-bars() {
+  &::-webkit-scrollbar {
+    width: rem(12px);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $base-light-gray;
+    border-radius: rem(6px);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $base-blue;
+  }
 }
 
 // Flip

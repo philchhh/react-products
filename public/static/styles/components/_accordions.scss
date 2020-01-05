@@ -1,0 +1,62 @@
+// Accordions
+// ----------------------------------------------------------------------
+.accordion {
+  position: relative;
+  margin-bottom: rem($pm-size-1);
+  border: 1px solid $base-gray;
+  border-radius: rem(3px);
+
+  &.card {
+    max-width: rem(380px);
+  }
+
+  .accordion-head {
+    background: transparent;
+    display: block;
+    font-size: rem(18px);
+    width: 100%;
+    text-align: left;
+    position: relative;
+    margin: 0;
+    padding: rem(9px 10px 5px 10px);
+    border: 0;
+    outline: 0 none;
+    cursor: pointer;
+
+    .plus-minus {
+      position: absolute;
+      top: rem(12px);
+      right: rem(10px);
+    }
+
+    &.expanded {
+      box-shadow: 0 0 0 1px $base-gray;
+    }
+  }
+
+  .pane {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 500ms ease-in-out;
+
+    &.expanded {
+      max-height: rem(500px);
+    }
+
+    .pane-content {
+      font-size: rem(14px);
+      color: $base-gray;
+      max-height: rem(480px);
+      position: relative;
+      top: rem(10px);
+      margin: rem(0 5px $pm-size-2 10px);
+      padding: rem($pm-size-1 0);
+      overflow-y: auto;
+      @include scroll-bars();
+
+      p {
+        margin-bottom: rem(10px);
+      }
+    }
+  }
+}

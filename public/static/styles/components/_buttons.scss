@@ -91,13 +91,18 @@
       @include transform(rotate(133deg));
     }
   }
-}
 
-.btn-home {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  &.icon-plus {
+    padding-left: rem(35px);
+    &::before {
+      content: "+";
+      font-size: rem(22px);
+      position: absolute;
+      top: 50%;
+      left: rem(15px);
+      @include transform(translateY(-50%));
+    }
+  }
 }
 
 .btn-group,
@@ -116,42 +121,6 @@
       width: 100%;
       margin: 0;
       padding: rem($pm-size-05) 0;
-    }
-  }
-}
-
-.btn-panel {
-  background: #000;
-  display: block;
-  min-height: rem(75px);
-  min-width: rem(20px);
-  padding: 0;
-  border: 1px solid transparent;
-  border-left: 0;
-  border-top-right-radius: rem($pm-size-05);
-  border-bottom-right-radius: rem($pm-size-05);
-  cursor: pointer;
-  outline: 0 none;
-
-  &::after {
-    display: block;
-    content: "";
-    height: rem(10px);
-    width: rem(10px);
-    margin: rem(-5px) 0 0 rem(-8px);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: solid $base-white;
-    border-width: 0 rem(2px) rem(2px) 0;
-    @include transform(rotate(-45deg));
-    @include transition(all, 0.5s, ease-in-out);
-  }
-
-  &.btn-panel-close {
-    &::after {
-      margin-left: rem(-3px);
-      @include transform(rotate(135deg));
     }
   }
 }

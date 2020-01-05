@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import Header from "./Header";
 import HeadContent from "./HeadContent";
 import Wrapper from "../ui/Wrapper";
