@@ -1,4 +1,4 @@
-import { List } from "semantic-ui-react";
+import List from "../ui/List";
 import Segment from "../ui/Segment";
 import Button from "../ui/Button";
 import Image from "../ui/Image";
@@ -13,25 +13,26 @@ function AccountOrders({ orders }) {
     return orders.map(order => (
       <Segment>
         <Label content={formatDate(order.createdAt)} />
-        <List.Header as="h3">
+        <h3>
           Total: ${order.total}
           <Label>{order.email}</Label>
-        </List.Header>
+        </h3>
         <List>
           <>
             {order.products.map((p, i) => (
               <List.Item key={i}>
-                <Image size="thumb" src={p.product.mediaUrl} />
-                <List.Content>
-                  <List.Header>{p.product.name}</List.Header>
-                  <List.Description>
+                <div className="grid-row">
+                  <div className="grid-3">
+                    <Image size="thumb" src={p.product.mediaUrl} />
+                  </div>
+
+                  <div className="grid-8">
+                    <h3>{p.product.name}</h3>
                     <p>Quantity: {p.quantity}</p>
                     <p>Price: ${p.product.price}</p>
-                  </List.Description>
-                </List.Content>
-                <List.Content>
-                  <Label>{p.product.sku}</Label>
-                </List.Content>
+                    <Label>{p.product.sku}</Label>
+                  </div>
+                </div>
               </List.Item>
             ))}
           </>
