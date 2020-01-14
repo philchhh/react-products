@@ -56,6 +56,7 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
             <Button label="View Products" onClick={() => router.push("/")} />
           ) : (
             <Button
+              commonBtn
               label="Login to add products"
               onClick={() => router.push("/login")}
             />

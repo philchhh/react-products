@@ -1,5 +1,4 @@
 import React from "react";
-//import { Form } from "semantic-ui-react";
 import Segment from "../components/ui/Segment";
 import Message from "../components/ui/Messages";
 import Form from "../components/ui/form-elements/Form";
@@ -54,18 +53,16 @@ function Signup() {
   return (
     <div className="content-main">
       <Message
-        attached
-        icon="settings"
-        header="Get Started"
+        header="Get Started!"
         content="Create a new account"
-        color="teal"
+        notification
+        rounded
       />
 
       <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
-        <Message error header="Oops!" content={error} />
+        <Message error={Boolean(error)} header="Oops!" content={error} />
         <Segment>
           <Input
-            fluid
             icon="user"
             iconPosition="left"
             placeholder="Name"
@@ -74,20 +71,16 @@ function Signup() {
             onChange={handleChange}
           />
           <Input
-            fluid
             type="email"
             icon="envelope"
-            iconPosition="left"
             placeholder="Email"
             name="email"
             value={user.email}
             onChange={handleChange}
           />
           <Input
-            fluid
             type="password"
             icon="lock"
-            iconPosition="left"
             placeholder="Password"
             name="password"
             value={user.password}

@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import Segment from "../components/ui/Segment";
 import Message from "../components/ui/Messages";
+import Button from "../components/ui/Button";
 import Link from "next/link";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
@@ -84,8 +85,8 @@ function Login() {
             disabled={disabled || loading}
             icon="sign in"
             type="submit"
-            color="orange"
-            content="Login"
+            label="Login"
+            commonBtn
           />
         </Segment>
       </Form>

@@ -36,6 +36,7 @@ function CartSummary({ products, handelCheckout, success }) {
             disabled={isCartEmpty || success}
             floatRight
             label="Checkout"
+            commonBtn
           />
         </StripeCheckout>
       </Segment>
