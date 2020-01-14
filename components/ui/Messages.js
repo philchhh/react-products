@@ -10,21 +10,25 @@ function Messages({
   children
 }) {
   return (
-    <div
-      className={classnames({
-        message: true,
-        notification: notification && true,
-        rounded: rounded && true,
-        warning: warning && true,
-        error: error && true
-      })}
-    >
-      <div className="message-header">
-        <h3>{header}</h3>
-      </div>
-      <p>{content}</p>
-      {children && children}
-    </div>
+    <>
+      {content && (
+        <div
+          className={classnames({
+            message: true,
+            notification: notification,
+            rounded: rounded,
+            warning: warning,
+            error: error
+          })}
+        >
+          <div className="message-header">
+            <h3>{header}</h3>
+          </div>
+          <p>{content}</p>
+          {children && children}
+        </div>
+      )}
+    </>
   );
 }
 

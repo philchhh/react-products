@@ -1,5 +1,5 @@
 import React from "react";
-import { classnames } from "../../utils/helper";
+import { classnames } from "../../../utils/helpers";
 
 function Input({
   type,

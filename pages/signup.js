@@ -1,7 +1,10 @@
 import React from "react";
-import { Button, Form } from "semantic-ui-react";
+//import { Form } from "semantic-ui-react";
 import Segment from "../components/ui/Segment";
 import Message from "../components/ui/Messages";
+import Form from "../components/ui/form-elements/Form";
+import Input from "../components/ui/form-elements/Input";
+import Button from "../components/ui/Button";
 import Link from "next/link";
 import catchErrors from "../utils/catchErrors";
 import baseUrl from "../utils/baseUrl";
@@ -60,9 +63,8 @@ function Signup() {
 
       <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
         <Message error header="Oops!" content={error} />
-
         <Segment>
-          <Form.Input
+          <Input
             fluid
             icon="user"
             iconPosition="left"
@@ -71,7 +73,7 @@ function Signup() {
             value={user.name}
             onChange={handleChange}
           />
-          <Form.Input
+          <Input
             fluid
             type="email"
             icon="envelope"
@@ -81,7 +83,7 @@ function Signup() {
             value={user.email}
             onChange={handleChange}
           />
-          <Form.Input
+          <Input
             fluid
             type="password"
             icon="lock"
@@ -93,10 +95,9 @@ function Signup() {
           />
           <Button
             disabled={disabled || loading}
-            icon="signup"
             type="submit"
-            color="orange"
-            content="Sign up"
+            commonBtn
+            label="Sign up"
           />
         </Segment>
       </Form>
