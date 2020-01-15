@@ -1,12 +1,14 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
 import Segment from "../components/ui/Segment";
 import Message from "../components/ui/Messages";
 import Button from "../components/ui/Button";
+import Form from "../components/ui/form-elements/Form";
+import Input from "../components/ui/form-elements/Input";
 import Link from "next/link";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
 import baseUrl from "../utils/baseUrl";
+//import { useRouter } from "next/router";
 import { handelLogin } from "../utils/auth";
 
 const INITIAL_USER = {
@@ -19,6 +21,8 @@ function Login() {
   const [disabled, setDisabled] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState("");
+
+  // const router = useRouter();
 
   React.useEffect(() => {
     const isUser = Object.values(user).every(el => Boolean(el));
@@ -43,8 +47,9 @@ function Login() {
       handelLogin(response.data);
     } catch (error) {
       catchErrors(error, setError);
-    } finally {
       setLoading(false);
+    } finally {
+      //setLoading(false);
     }
   };
 
@@ -61,21 +66,18 @@ function Login() {
         <Message error header="Oops!" content={error} />
 
         <Segment loading={loading}>
-          <Form.Input
-            fluid
+          <Input
             type="email"
             icon="envelope"
-            iconPosition="left"
             placeholder="Email"
             name="email"
             value={user.email}
             onChange={handleChange}
           />
-          <Form.Input
+          <Input
             fluid
             type="password"
             icon="lock"
-            iconPosition="left"
             placeholder="Password"
             name="password"
             value={user.password}

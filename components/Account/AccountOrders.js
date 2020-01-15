@@ -10,8 +10,8 @@ function AccountOrders({ orders }) {
   const router = useRouter();
 
   function MapOrdersToPanels() {
-    return orders.map(order => (
-      <Segment>
+    return orders.map((order, i) => (
+      <Segment key={i}>
         <Label content={formatDate(order.createdAt)} />
         <h3>
           Total: ${order.total}

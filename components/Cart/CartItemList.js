@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 function CartItemList({ products, user, handleRemoveFromCart, success }) {
   const router = useRouter();
 
-  console.log(products);
+  // TODO: create modal for 'remove' action
 
   function mapCartProductsToItems(products) {
     return products.map(p => ({
@@ -53,7 +53,11 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
         <h2>No products in your cart! Add some yo!</h2>
         <div>
           {user ? (
-            <Button label="View Products" onClick={() => router.push("/")} />
+            <Button
+              commonBtn
+              label="View Products"
+              onClick={() => router.push("/")}
+            />
           ) : (
             <Button
               commonBtn
