@@ -1,5 +1,11 @@
-import { Form, Input, TextArea, Button, Message } from "semantic-ui-react";
+import React from "react";
 
+import Message from "../components/ui/Messages";
+import Button from "../components/ui/Button";
+import Form from "../components/ui/form-elements/Form";
+import Input from "../components/ui/form-elements/Input";
+import Textarea from "../components/ui/form-elements/Textarea";
+import Segment from "../components/ui/Segment";
 import Image from "../components/ui/Image";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
@@ -74,28 +80,29 @@ function CreateProduct() {
         error={Boolean(error)}
         onSubmit={handleSubmit}
       >
-        <Message
-          error
-          header="Oops!"
-          content="Error product could not be saved."
-        />
-        <Message
-          success
-          icon="check"
-          header="Success!"
-          content="Your product has been saved!"
-        />
-        <Form.Group widths="equal">
-          <Form.Field
-            control={Input}
+        {error && (
+          <Message
+            error
+            header="Oops!"
+            content="Error product could not be saved."
+          />
+        )}
+        {success && (
+          <Message
+            success
+            header="Success!"
+            content="Your product has been saved!"
+          />
+        )}
+        <Segment loading={loading}>
+          <Input
             name="name"
             label="Name"
             placeholder="name"
             value={product.name}
             onChange={handleChange}
           />
-          <Form.Field
-            control={Input}
+          <Input
             name="price"
             label="Price"
             placeholder="Price"
@@ -105,8 +112,7 @@ function CreateProduct() {
             type="number"
             onChange={handleChange}
           />
-          <Form.Field
-            control={Input}
+          <Input
             name="media"
             label="Media"
             type="file"
@@ -114,26 +120,23 @@ function CreateProduct() {
             content="Select Image"
             onChange={handleChange}
           />
-        </Form.Group>
+        </Segment>
 
         {mediaPreview && (
           <Image src={mediaPreview} width="160" centered size="small" />
         )}
 
-        <Form.Field
-          control={TextArea}
+        <Textarea
           name="description"
           label="Description"
           placeholder="Description"
           value={product.description}
           onChange={handleChange}
         />
-        <Form.Field
-          control={Button}
+        <Button
+          commonBtn
           disabled={disabled || loading}
-          color="blue"
-          idon="pencil alternate"
-          content="Submit"
+          label="Submit"
           type="submit"
         />
       </Form>

@@ -1,17 +1,15 @@
 import React from "react";
 import { classnames } from "../../../utils/helpers";
 
-function Input({
-  type,
+function Textarea({
   label,
   value,
   id,
   name,
-  accept,
   required,
-  currency,
   placeholder,
   onChange,
+  rows,
   error,
   disabled
 }) {
@@ -20,30 +18,26 @@ function Input({
       {label && <label htmlFor="{id}">{label}</label>}
       <div
         className={classnames({
-          "form-control-container": true,
-          search: type === "search",
-          currency: currency
+          "form-control-container": true
         })}
       >
-        <input
-          onChange={onChange}
-          value={value}
-          type={type ? type : "text"}
-          accept={accept}
+        <textarea
           className={classnames({
-            "form-control": true,
             error: error,
             disabled: disabled
           })}
+          onChange={onChange}
+          rows={rows || 5}
+          value={value}
           name={name}
           id={id}
           placeholder={placeholder}
           disabled={disabled}
           required={required}
-        />
+        ></textarea>
       </div>
     </div>
   );
 }
 
-export default Input;
+export default Textarea;

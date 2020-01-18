@@ -5,6 +5,7 @@ function Messages({
   content,
   rounded,
   warning,
+  success,
   notification,
   error,
   children
