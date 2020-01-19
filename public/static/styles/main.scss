@@ -12,12 +12,20 @@
 @import "base/_base";
 @import "base/_forms";
 
+// Layout
+// ----------------------------------------------------------------------
+@import "layout/_global";
+@import "layout/_header";
+@import "layout/_footer";
+@import "layout/_grid";
+
 // Components
 // ----------------------------------------------------------------------
 @import "components/_utility-bar";
 @import "components/_pre-login";
 @import "components/_panel";
 @import "components/_menu";
+@import "components/_form-elements";
 @import "components/_messages";
 @import "components/_segment";
 @import "components/_lists";
@@ -33,10 +41,3 @@
 @import "components/_progress-bar";
 @import "components/_loaders";
 @import "components/_footer-components";
-
-// Layout
-// ----------------------------------------------------------------------
-@import "layout/_global";
-@import "layout/_header";
-@import "layout/_footer";
-@import "layout/_grid";

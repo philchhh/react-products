@@ -1,5 +1,5 @@
 import React from "react";
-import { classnames } from "../../utils/helper";
+import { classnames } from "../../../utils/helpers";
 
 export const TableHeader = ({ children }) => {
   return (
@@ -11,6 +11,10 @@ export const TableHeader = ({ children }) => {
 
 export const TableBody = ({ children }) => {
   return <tbody>{children}</tbody>;
+};
+
+export const TableRow = ({ children }) => {
+  return <tr>{children}</tr>;
 };
 
 export const Cell = ({ children, header, sort }) => {

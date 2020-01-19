@@ -1,5 +1,6 @@
 import React from "react";
-import { Input } from "semantic-ui-react";
+//import { Input } from "semantic-ui-react";
+import Input from "../ui/form-elements/Input";
 import { useRouter } from "next/router";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
@@ -48,14 +49,12 @@ function AddProductToCart({ user, productId }) {
       action={
         user && success
           ? {
-              color: "blue",
               content: "Item Added!",
               icon: "plus cart",
               disabled: true
             }
           : user
           ? {
-              color: "orange",
               content: "Add to cart",
               icon: "plus cart",
               loading,
@@ -63,7 +62,6 @@ function AddProductToCart({ user, productId }) {
               onClick: handleAddProductToCart
             }
           : {
-              color: "blue",
               content: "Sign Up To Purchase",
               icon: "signup",
               onClick: () => router.push("/signup")

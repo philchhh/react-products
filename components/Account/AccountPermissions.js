@@ -1,6 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { Checkbox, Table } from "semantic-ui-react";
+import Switch from "../ui/form-elements/Switch";
+import Table, {
+  TableHeader,
+  TableRow,
+  TableBody,
+  Cell
+} from "../ui/tables/Table";
 import baseUrl from "../../utils/baseUrl";
 import cookie from "js-cookie";
 import formatDate from "../../utils/formatDate";
@@ -23,22 +29,20 @@ function AccountPermissions() {
   return (
     <div>
       <h2>User Permissions</h2>
-      <Table compact celled definition>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell />
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>Joined</Table.HeaderCell>
-            <Table.HeaderCell>Updated</Table.HeaderCell>
-            <Table.HeaderCell>Role</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <Table>
+        <TableHeader>
+          <Cell />
+          <Cell header>Name</Cell>
+          <Cell>Email</Cell>
+          <Cell>Joined</Cell>
+          <Cell>Updated</Cell>
+          <Cell>Role</Cell>
+        </TableHeader>
+        <TableBody>
           {users.map(user => (
             <UserPermissions key={user._id} user={user} />
           ))}
-        </Table.Body>
+        </TableBody>
       </Table>
     </div>
   );
@@ -69,16 +73,21 @@ function UserPermissions({ user }) {
   }
 
   return (
-    <Table.Row>
-      <Table.Cell collapsing>
-        <Checkbox toggle checked={admin} onChange={handleChangePermission} />
-      </Table.Cell>
-      <Table.Cell>{user.name}</Table.Cell>
-      <Table.Cell>{user.email}</Table.Cell>
-      <Table.Cell>{formatDate(user.createdAt)}</Table.Cell>
-      <Table.Cell>{formatDate(user.updatedAt)}</Table.Cell>
-      <Table.Cell>{admin ? "admin" : "user"}</Table.Cell>
-    </Table.Row>
+    <TableRow>
+      <Cell>
+        <Switch
+          rounded
+          defaultChecked={admin}
+          onChange={handleChangePermission}
+        />
+        {/* <Checkbox toggle checked={admin} onChange={handleChangePermission} /> */}
+      </Cell>
+      <Cell>{user.name}</Cell>
+      <Cell>{user.email}</Cell>
+      <Cell>{formatDate(user.createdAt)}</Cell>
+      <Cell>{formatDate(user.updatedAt)}</Cell>
+      <Cell>{admin ? "admin" : "user"}</Cell>
+    </TableRow>
   );
 }
 

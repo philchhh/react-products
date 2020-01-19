@@ -57,6 +57,7 @@ function CreateProduct() {
       catchErrors(error, setError);
     } finally {
       setLoading(false);
+      setMediaPreview("");
     }
   };
 

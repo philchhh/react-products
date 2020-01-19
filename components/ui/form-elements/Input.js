@@ -1,10 +1,12 @@
 import React from "react";
 import { classnames } from "../../../utils/helpers";
+import Button from "../Button";
 
 function Input({
   type,
   label,
   value,
+  action,
   id,
   name,
   accept,
@@ -41,6 +43,7 @@ function Input({
           disabled={disabled}
           required={required}
         />
+        {action && <Button commonBtn label="Add to Cart" />}
       </div>
     </div>
   );

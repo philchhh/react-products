@@ -23,6 +23,7 @@ function Switch({
         onChange={onChange}
         type="checkbox"
         name={name}
+        value={value}
         disabled={disabled}
         error={error}
         defaultChecked={defaultChecked}

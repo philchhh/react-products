@@ -27,7 +27,11 @@ function ProductAttributes({ description, _id, user }) {
 
       {isRootOrAdmin && (
         <>
-          <Button onClick={() => setModal(true)} label="Delete Product" />
+          <Button
+            commonBtn
+            onClick={() => setModal(true)}
+            label="Delete Product"
+          />
           <Modal open={modal} dimmer="blurring">
             <Modal.Header>Confirm Delete</Modal.Header>
             <Modal.Content>
