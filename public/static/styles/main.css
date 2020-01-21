@@ -582,6 +582,50 @@ input[placeholder],
 *[placeholder] {
   color: #191919; }
 
+table {
+  width: 100%;
+  font-size: 0.875rem;
+  text-align: left;
+  margin: 0.75rem 0;
+  border-bottom: 2px solid #ddd;
+  border-collapse: collapse; }
+  @media screen and (max-width: 40rem) {
+    table {
+      font-size: 0.75rem; }
+      table thead {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        margin: -1px;
+        padding: 0;
+        position: absolute;
+        border: 0; } }
+  table tr th {
+    background: #fff;
+    border-bottom: 2px solid #ddd; }
+  table th,
+  table td {
+    vertical-align: top;
+    padding: 0.75rem; }
+  @media screen and (max-width: 40rem) {
+    table tr {
+      display: block;
+      border-top: 1px solid #ddd;
+      border-bottom: 0; } }
+  table tr:nth-child(odd) {
+    background-color: #ecf2f9; }
+  @media screen and (max-width: 40rem) {
+    table td {
+      display: block;
+      text-align: right;
+      border-bottom: 0; }
+      table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase; } }
+
 #root,
 .wrapper {
   position: relative;
@@ -2501,11 +2545,9 @@ img.thumb {
 
 .modal,
 .modal-open {
-  padding: 0 !important;
   overflow: hidden; }
 
 .modal {
-  display: none;
   outline: 0 none;
   position: fixed;
   top: 0;
@@ -2552,62 +2594,6 @@ img.thumb {
       color: white;
       border: 1px solid #aaa;
       box-shadow: inset 2px 2px 2px #000; }
-
-.uge-modal-container .modal-dialog {
-  max-width: none;
-  width: 100%;
-  height: 100%;
-  margin: 0; }
-  .uge-modal-container .modal-dialog .modal-content {
-    width: 100%;
-    min-height: 100%; }
-  @media only screen and (min-width: 48rem) {
-    .uge-modal-container .modal-dialog {
-      height: auto;
-      max-width: 37.5rem;
-      margin: 1.875rem auto; }
-      .uge-modal-container .modal-dialog .modal-content {
-        min-height: none;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); } }
-  @media only screen and (min-width: 78.75rem) {
-    .uge-modal-container .modal-dialog.modal-lg {
-      max-width: 48rem; } }
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .uge-modal-container .modal-dialog {
-      max-width: none;
-      width: 100%;
-      height: 100%;
-      margin: 0; }
-      .uge-modal-container .modal-dialog .modal-content {
-        width: 100%;
-        min-height: 100%; } }
-  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-    .uge-modal-container .modal-dialog {
-      max-width: none;
-      width: 100%;
-      height: 100%;
-      margin: 0; }
-      .uge-modal-container .modal-dialog .modal-content {
-        width: 100%;
-        min-height: 100%; } }
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .uge-modal-container .modal-dialog {
-      max-width: none;
-      width: 100%;
-      height: 100%;
-      margin: 0; }
-      .uge-modal-container .modal-dialog .modal-content {
-        width: 100%;
-        min-height: 100%; } }
-  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-    .uge-modal-container .modal-dialog {
-      max-width: none;
-      width: 100%;
-      height: 100%;
-      margin: 0; }
-      .uge-modal-container .modal-dialog .modal-content {
-        width: 100%;
-        min-height: 100%; } }
 
 .modal-dialog .emphasize,
 .form-horizontal .emphasize {
@@ -2666,8 +2652,6 @@ img.thumb {
 .modal-body {
   position: relative;
   padding: 0.9375rem; }
-  .modal-body.uge-modal {
-    padding: 0; }
 
 .modal-footer {
   text-align: right;
@@ -2684,8 +2668,6 @@ img.thumb {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
-  .modal-footer .optionsActionBtn {
-    width: 8.125rem; }
 
 .modal-scrollbar-measure {
   width: 3.125rem;

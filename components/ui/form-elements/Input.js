@@ -43,7 +43,14 @@ function Input({
           disabled={disabled}
           required={required}
         />
-        {action && <Button commonBtn label="Add to Cart" />}
+        {action && (
+          <Button
+            commonBtn
+            onClick={action.onClick}
+            label={action.label}
+            disabled={action.disabled}
+          />
+        )}
       </div>
     </div>
   );

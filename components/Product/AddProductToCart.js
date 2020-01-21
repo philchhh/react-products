@@ -49,21 +49,18 @@ function AddProductToCart({ user, productId }) {
       action={
         user && success
           ? {
-              content: "Item Added!",
-              icon: "plus cart",
+              label: "Item Added!",
               disabled: true
             }
           : user
           ? {
-              content: "Add to cart",
-              icon: "plus cart",
+              label: "Add to cart",
               loading,
               disabled: loading,
               onClick: handleAddProductToCart
             }
           : {
-              content: "Sign Up To Purchase",
-              icon: "signup",
+              label: "Sign Up To Purchase",
               onClick: () => router.push("/signup")
             }
       }

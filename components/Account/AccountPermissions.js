@@ -31,12 +31,12 @@ function AccountPermissions() {
       <h2>User Permissions</h2>
       <Table>
         <TableHeader>
-          <Cell />
+          <Cell header />
           <Cell header>Name</Cell>
-          <Cell>Email</Cell>
-          <Cell>Joined</Cell>
-          <Cell>Updated</Cell>
-          <Cell>Role</Cell>
+          <Cell header>Email</Cell>
+          <Cell header>Joined</Cell>
+          <Cell header>Updated</Cell>
+          <Cell header>Role</Cell>
         </TableHeader>
         <TableBody>
           {users.map(user => (
