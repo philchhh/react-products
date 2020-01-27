@@ -6,19 +6,20 @@
 }
 
 .modal {
-  //display: none;
-  outline: 0 none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 1050;
+  outline: 0 none;
   -webkit-overflow-scrolling: touch;
 }
 
 .modal-dialog {
+  background: #fff;
   color: $base-black;
+  min-height: rem(280px);
   width: auto;
   position: relative;
   margin: rem($pm-size-1);
@@ -26,9 +27,6 @@
   @include responds-to(handheld) {
     max-width: rem(600px);
     margin: rem(30px) auto;
-    .modal-content {
-      box-shadow: 0 rem(5px) rem(15px) rgba(#000, 0.5);
-    }
   }
 
   @include responds-to(wide-screen) {
@@ -37,12 +35,7 @@
     }
   }
 
-  h4 {
-    font-size: rem(24px);
-    min-height: rem(30px);
-  }
-
-  .btn {
+  .action-btn {
     @include gradient(#949494, #6c6c6c, vertical);
     color: $base-white;
     text-shadow: 0 1px 0 #666;
@@ -89,14 +82,8 @@
 }
 
 .modal-content {
-  position: relative;
   background-color: $base-white;
-  background-clip: padding-box;
-  border: 1px solid #999;
-  border: 1px solid rgba(#000, 0.2);
-  border-radius: rem(6px);
-  outline: 0 none;
-  box-shadow: 0 rem(3px) rem(9px) rgba(#000, 0.5);
+  padding: rem($pm-size-05);
 }
 
 .modal-backdrop {
@@ -133,7 +120,7 @@
   margin: 0;
 }
 
-.modal-body {
+.modal-content {
   position: relative;
   padding: rem(15px);
 }

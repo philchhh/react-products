@@ -3,14 +3,11 @@ import ProductSummary from "../components/Product/ProductSummary";
 import ProductAttributes from "../components/Product/ProductAttributes";
 import baseUrl from "../utils/baseUrl";
 
-import Modal from "../components/ui/Modal";
-
 function Product({ product, user }) {
   return (
     <div className="content-main">
       <ProductSummary user={user} {...product} />
       <ProductAttributes user={user} {...product} />
-      <Modal />
     </div>
   );
 }

@@ -17,10 +17,12 @@ function Layout({ children, user }) {
         <link rel="stylesheet" type="text/css" href="/static/styles/main.css" />
         <title>ReactReserve</title>
       </Head>
-      <Header user={user} />
-      <Wrapper>
-        <Container>{children}</Container>
-      </Wrapper>
+      <div id="app-wrapper">
+        <Header user={user} />
+        <Wrapper>
+          <Container>{children}</Container>
+        </Wrapper>
+      </div>
     </>
   );
 }

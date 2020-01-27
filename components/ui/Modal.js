@@ -4,32 +4,37 @@ import ReactDOM from "react-dom";
 import { classnames } from "../../utils/helpers";
 import Button from "../ui/Button";
 
+Modal.Header = ({ children }) => {
+  return <h3 className="modal-header">{children}</h3>;
+};
+
+Modal.Content = ({ children }) => {
+  return <div className="modal-content">{children}</div>;
+};
+
+Modal.Actions = ({ children }) => {
+  return <div className="modal-footer">{children}</div>;
+};
+
 function Modal({ openModal, closeModal, children }) {
   return (
-    <div
-      className={classnames({
-        modal: true,
-        "modal-open": openModal,
-        "hide-modal": closeModal
-      })}
-    >
+    <>
       <div
         className={classnames({
-          "modal-dialog": true
-          // "show-modal": openModal,
-          // "hide-modal": closeModal
+          modal: true
         })}
       >
-        <div className="modal-content">
-          <Button onClick={closeModal}>X</Button>
-          <h2>Modal heading</h2>
-          <p>This is modal content</p>
+        <div
+          className={classnames({
+            "modal-dialog": true
+          })}
+        >
           {children}
         </div>
       </div>
-    </div>
+      <div className="modal-backdrop in"></div>
+    </>
   );
-  //return ReactDOM.createPortal(modal, document.getElementById("test"));
 }
 
 export default Modal;
