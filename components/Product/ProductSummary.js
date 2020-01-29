@@ -1,4 +1,4 @@
-import { Item } from "semantic-ui-react";
+import Item from "../ui/Item";
 import Label from "../ui/Label";
 import AddProductToCart from "./AddProductToCart";
 

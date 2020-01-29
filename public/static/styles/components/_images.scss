@@ -4,4 +4,8 @@ img {
   &.thumb {
     max-width: rem(160px);
   }
+
+  &.medium {
+    max-width: rem(280px);
+  }
 }

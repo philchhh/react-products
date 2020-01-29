@@ -5,9 +5,9 @@ function Image({ src, size, height, width, rounded, centered, alt }) {
     <img
       className={classnames({
         image: true,
-        [size]: size && true,
-        centered: centered && true,
-        rounded: rounded && true
+        [size]: size,
+        centered: centered,
+        rounded: rounded
       })}
       src={src}
       height={height}

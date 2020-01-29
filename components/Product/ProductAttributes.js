@@ -1,5 +1,4 @@
 import React from "react";
-//import { Modal } from "semantic-ui-react";
 import Button from "../ui/Button";
 import Modal from "../ui/Modal";
 import axios from "axios";

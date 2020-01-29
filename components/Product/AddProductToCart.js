@@ -1,5 +1,4 @@
 import React from "react";
-//import { Input } from "semantic-ui-react";
 import Input from "../ui/form-elements/Input";
 import { useRouter } from "next/router";
 import axios from "axios";

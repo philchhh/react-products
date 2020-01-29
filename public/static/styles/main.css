@@ -2071,6 +2071,8 @@ table {
 
 img.thumb {
   max-width: 10rem; }
+img.medium {
+  max-width: 17.5rem; }
 
 .accordion {
   position: relative;
