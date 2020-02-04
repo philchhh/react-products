@@ -10,10 +10,10 @@ function Layout({ children, user }) {
       <Head>
         <HeadContent />
         <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-        <link
+        {/* <link
           rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"
-        />
+        /> */}
         <link rel="stylesheet" type="text/css" href="/static/styles/main.css" />
         <title>ReactReserve</title>
       </Head>
