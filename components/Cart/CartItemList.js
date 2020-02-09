@@ -70,7 +70,7 @@ function CartItemList({ products, user, handleRemoveFromCart, success }) {
     );
   }
 
-  return <Item items={mapCartProductsToItems(products)} />;
+  return <Item grouped items={mapCartProductsToItems(products)} />;
 }
 
 export default CartItemList;

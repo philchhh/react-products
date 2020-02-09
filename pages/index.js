@@ -7,6 +7,19 @@ import baseUrl from "../utils/baseUrl";
 function Home({ products, totalPages }) {
   return (
     <div className="content-main">
+      <p>
+        Dolor ipsum labore ullamco excepteur veniam occaecat pariatur cillum
+        veniam ex commodo id. Est laborum in culpa est quis. Nostrud aliqua
+        Lorem amet nisi et exercitation non ipsum. Ex elit ut amet adipisicing
+        ut sunt irure Lorem. Elit non magna exercitation aliquip ad laboris
+        velit ut laborum commodo. Proident ut ad aute qui duis dolore.
+      </p>
+      <p>
+        Nisi et exercitation non ipsum. Ex elit ut amet adipisicing ut sunt
+        irure Lorem. Elit non magna exercitation aliquip ad laboris velit ut
+        laborum commodo. Proident ut ad aute qui duis dolore.
+      </p>
+
       <ProductList products={products} />
       <ProductPagination totalPages={totalPages} />
     </div>

@@ -1,71 +1,44 @@
 // Pagination
 // ----------------------------------------------------------------------
-.gamelist-pagination {
-  .pagination {
-    display: inline-block;
-    margin: rem($pm-size-2) 0;
+.pagination {
+  display: inline-block;
+  margin: rem($pm-size-2) 0;
 
-    > li {
-      display: inline-block;
+  > a {
+    cursor: pointer;
+  }
 
-      > a,
-      > span {
-        background-color: $base-white;
-        display: block;
-        float: left;
-        color: $base-black;
-        height: rem(25px);
-        width: rem(25px);
-        line-height: rem(25px);
-        text-align: center;
-        text-decoration: none;
-        position: relative;
-        border: 1px solid #ddd;
+  > a,
+  > span {
+    background-color: $base-white;
+    display: block;
+    float: left;
+    color: $base-black;
+    height: rem(25px);
+    width: rem(25px);
+    line-height: rem(25px);
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    border: 1px solid #ddd;
 
-        &:hover,
-        &:focus {
-          background-color: #eee;
-          border-color: #ddd;
-        }
-      }
+    &:hover,
+    &:focus {
+      background-color: #eee;
+      border-color: #ddd;
+    }
 
-      &:first-child {
-        > a,
-        > span {
-          margin: 0;
-        }
-      }
+    &.active {
+      background-color: $base-black;
+      color: $base-white;
+      cursor: default;
+    }
 
-      &:last-child {
-        > a,
-        > span {
-          margin: 0;
-        }
-      }
-
-      > &.active > a,
-      > &.active > a:hover,
-      > &.active > a:focus,
-      > &.active > span,
-      > &.active > span:hover,
-      > &.active > span:focus {
-        background-color: $base-black;
-        color: $base-white;
-        border-color: #337ab7;
-        cursor: default;
-      }
-
-      > &.disabled > a,
-      > &.disabled > a:focus,
-      > &.disabled > a:hover,
-      > &.disabled > span,
-      > &.disabled > span:focus,
-      > &.disabled > span:hover {
-        background-color: $base-white;
-        color: #777;
-        border-color: #ddd;
-        cursor: not-allowed;
-      }
+    &.disabled {
+      background-color: $base-white;
+      color: #777;
+      border-color: #ddd;
+      cursor: not-allowed;
     }
   }
 }

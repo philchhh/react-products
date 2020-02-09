@@ -2,7 +2,15 @@ import { classnames } from "../../utils/helpers";
 import Image from "../ui/Image";
 
 Item.Group = ({ children }) => {
-  return <div className="item-group">{children}</div>;
+  return (
+    <div
+      className={classnames({
+        "item-group": true
+      })}
+    >
+      {children}
+    </div>
+  );
 };
 
 Item.Content = ({ children }) => {
@@ -18,14 +26,20 @@ Item.Extra = ({ children }) => {
 };
 
 Item.Image = ({ src, size }) => {
-  return <Image size={size} src={src} />;
+  return (
+    <div className="item-image">
+      <Image size={size} src={src} />
+    </div>
+  );
 };
 
-function Item({ items, children }) {
+function Item({ items, children, flex, grouped }) {
   return (
     <div
       className={classnames({
-        item: true
+        item: !grouped,
+        "grid-flex": flex,
+        "item-group": grouped
       })}
     >
       {children}
@@ -33,13 +47,22 @@ function Item({ items, children }) {
       {items && (
         <>
           {items.map((item, i) => (
-            <div key={item.childKey}>
+            <div className="item-single" key={item.childKey}>
               {item.header}
-
-              <img className="image thumb" src={item.image} alt={item.alt} />
-
-              <p>Price: {item.meta}</p>
-              {item.extra}
+              <div className="grid-flex">
+                <div className="item-image">
+                  <Image
+                    className="image thumb"
+                    size="medium"
+                    src={item.image}
+                    alt={item.alt}
+                  />
+                </div>
+                <div className="item-content">
+                  <p>Price: {item.meta}</p>
+                  {item.extra}
+                </div>
+              </div>
             </div>
           ))}
         </>

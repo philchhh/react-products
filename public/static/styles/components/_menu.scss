@@ -2,15 +2,15 @@
 // ------------------------------------------------------
 .component-menu {
   background: $base-blue;
-  // height: 100%;
-  // width: 100%;
-  // overflow-y: auto;
-  // position: fixed;
-  // top: 0;
-  // left: -110%;
-  // z-index: 999;
-  // box-shadow: 0 0 rem(5px) rem(5px) rgba($base-dark-gray, 0.5);
-  // @include transition(all, 0.25s, ease-in-out);
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: -110%;
+  z-index: 999;
+  //box-shadow: 0 0 rem(5px) rem(5px) rgba($base-dark-gray, 0.5);
+  @include transition(all, 0.25s, ease-in-out);
 
   &.expanded {
     left: 0;
@@ -24,6 +24,10 @@
 
   @include responds-to(small-screen) {
     background: transparent;
+    width: auto;
+    position: relative;
+    top: auto;
+    left: 0;
   }
 
   @include responds-to(iphonex) {
@@ -85,7 +89,7 @@
 
       &.active {
         > a {
-          background: rgba($base-blue, 0.5);
+          background: $base-blue;
         }
       }
     }

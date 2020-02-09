@@ -1,0 +1,24 @@
+// Item
+// ------------------------------------------------------
+.item {
+  .item-content {
+  }
+
+  &.grid-flex {
+    .item-content {
+      margin: rem($pm-size-2 0 0 $pm-size-2);
+    }
+  }
+}
+
+.item-group {
+  .item-single {
+    padding: rem($pm-size-2 0 $pm-size-1 0);
+    border-bottom: 1px solid $grey-4;
+
+    h2 > a,
+    h3 > a {
+      text-decoration: none;
+    }
+  }
+}

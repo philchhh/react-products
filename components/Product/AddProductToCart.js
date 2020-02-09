@@ -40,10 +40,10 @@ function AddProductToCart({ user, productId }) {
 
   return (
     <Input
+      label="Quantity"
       type="number"
       min="1"
       value={quantity}
-      placeholder="Quantity"
       onChange={event => setQuantity(Number(event.target.value))}
       action={
         user && success

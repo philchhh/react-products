@@ -5,14 +5,14 @@ import AddProductToCart from "./AddProductToCart";
 function ProductSummary({ user, name, mediaUrl, _id, price, sku }) {
   return (
     <Item.Group>
-      <Item>
+      <Item flex>
         <Item.Image size="medium" src={mediaUrl} />
 
         <Item.Content>
           <h3>{name}</h3>
           <Item.Description>
             <p>Price: ${price}</p>
-            <Label>SKU: {sku}</Label>
+            {/* <Label>SKU: {sku}</Label> */}
           </Item.Description>
           <Item.Extra>
             <AddProductToCart user={user} productId={_id} />
