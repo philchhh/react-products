@@ -45,6 +45,12 @@ function Header({ user }) {
             </Menu.Item>
           )}
 
+          <Menu.Item active={isActive("/contact")}>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
+          </Menu.Item>
+
           {user ? (
             <>
               <Menu.Item active={isActive("/account")}>

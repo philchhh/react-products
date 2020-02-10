@@ -53,6 +53,7 @@ function AccountOrders({ orders }) {
               onClick={() => {
                 router.push("/");
               }}
+              commonBtn
               label="View Products"
             />
           </div>

@@ -38,20 +38,19 @@
     margin: 0;
 
     > li {
-      //border-bottom: 1px solid $base-white;
-
-      &:first-child {
-        //border-top: 1px solid $base-white;
+      @include responds-to(small-screen) {
+        margin-right: rem(3px);
       }
 
       > a,
       > button {
         background: transparent;
         display: block;
-        font-size: rem(18px);
+        font-size: rem(16px);
         color: #fff;
+        height: 100%;
         text-align: left;
-        // width: 100%;
+        text-decoration: none;
         padding: rem($pm-size-2) rem($pm-size-3);
         outline: 0 none;
         //@include gradient($base-dark-gray, transparent, vertical);
@@ -78,7 +77,7 @@
 
         &:hover,
         &:focus {
-          background: rgba($base-blue, 0.5);
+          background: $base-blue;
           // @include gradient(transparent, $base-dark-gray, vertical);
 
           svg {

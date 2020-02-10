@@ -113,6 +113,15 @@ function CreateProduct() {
             type="number"
             onChange={handleChange}
           />
+
+          <Textarea
+            name="description"
+            label="Description"
+            placeholder="Description"
+            value={product.description}
+            onChange={handleChange}
+          />
+
           <Input
             name="media"
             label="Media"
@@ -121,25 +130,18 @@ function CreateProduct() {
             content="Select Image"
             onChange={handleChange}
           />
+
+          {mediaPreview && (
+            <Image src={mediaPreview} width="160" centered size="small" />
+          )}
+
+          <Button
+            commonBtn
+            disabled={disabled || loading}
+            label="Submit"
+            type="submit"
+          />
         </Segment>
-
-        {mediaPreview && (
-          <Image src={mediaPreview} width="160" centered size="small" />
-        )}
-
-        <Textarea
-          name="description"
-          label="Description"
-          placeholder="Description"
-          value={product.description}
-          onChange={handleChange}
-        />
-        <Button
-          commonBtn
-          disabled={disabled || loading}
-          label="Submit"
-          type="submit"
-        />
       </Form>
     </div>
   );
